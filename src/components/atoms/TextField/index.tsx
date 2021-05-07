@@ -1,10 +1,8 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
 import VisilityIcon from '@material-ui/icons/Visibility';
 import VisilityIconOff from '@material-ui/icons/VisibilityOff';
 import FormControll from '@material-ui/core/FormControl';
-import FiledInput from '@material-ui/core/FilledInput';
 import InputLabel from '@material-ui/core/InputLabel';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import IconButton from '@material-ui/core/IconButton';
@@ -24,7 +22,7 @@ const useStyles = makeStyles((theme: Theme) =>
             marginTop: theme.spacing(3),
         },
         textField: {
-            width: '25ch'
+            width: '25ch',
         }
     })
 );
@@ -34,7 +32,7 @@ interface State {
     showPassword: boolean;
 }
 
-export default function Field(props: Props) {
+export default function Field() {
     const classes = useStyles();
     const [values, setValues] = React.useState<State>({
         password: '',
@@ -50,10 +48,11 @@ export default function Field(props: Props) {
       };
 
     const handleMouseDownPassword = (event: React.MouseEvent<HTMLButtonElement>) => {
-    event.preventDefault();
+        event.preventDefault();
     };
       
     const textFieldClass = classNames(classes.margin, classes.textField);
+
     return (
         <FormControll className={textFieldClass} variant="outlined">
             <InputLabel htmlFor='outlined-adornment-password'>Password</InputLabel>
