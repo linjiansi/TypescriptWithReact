@@ -3,7 +3,7 @@ import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 
 type Props = {
-    label: string;
+    children: React.ReactNode;
 };
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -17,12 +17,12 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 export default function ContainedButton(props: Props) {
-    const label = props;
+    const children = props.children;
     const classes = useStyles();
 
     return (
         <div className={classes.root}>
-            <Button variant="contained">{label}</Button>
+            <Button variant="contained">{children}</Button>
         </div>
     )
 }
