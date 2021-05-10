@@ -9,6 +9,10 @@ import IconButton from '@material-ui/core/IconButton';
 import classNames from 'classnames';
 import { OutlinedInput } from '@material-ui/core';
 
+type Props = {
+    children: React.ReactNode;
+};
+
 const useStyles = makeStyles((theme: Theme) => 
     createStyles({
         root: {
@@ -32,8 +36,9 @@ interface State {
     showPassword: boolean;
 }
 
-export default function Field() {
+export default function Field(props: Props) {
     const classes = useStyles();
+    const children = props.children;
     const [values, setValues] = React.useState<State>({
         password: '',
         showPassword: false,
@@ -55,7 +60,7 @@ export default function Field() {
 
     return (
         <FormControll className={textFieldClass} variant="outlined">
-            <InputLabel htmlFor='outlined-adornment-password'>Password</InputLabel>
+            <InputLabel htmlFor='outlined-adornment-password'><span>{children}</span></InputLabel>
             <OutlinedInput
                 id="outlined-adorment-password"
                 type={values.showPassword ? 'text' : 'password'}
