@@ -89,6 +89,26 @@ const returnInputLabel = (inputType: TextFieldType) => {
     }
 };
 
+const returnTextFieldLabelWidth = (inputType: TextFieldType) => {
+    switch (inputType) {
+        case 'email':
+            return 110;
+            break;
+        case 'password':
+            return 80;
+            break;
+        case 'bookName':
+            return 50;
+            break;
+        case 'bookPrice':
+            return 40;
+            break;
+        case 'purchaseDate':
+            return 0;
+            break;
+    }
+};
+
 interface State extends TextField {
     mailValidate: boolean;
     passwordValidate: boolean;
@@ -159,7 +179,7 @@ export default function Field(props: Props) {
                 endAdornment={
                     inputType == 'password' ? renderPasswordIcon() : undefined
                 }
-                labelWidth={70}
+                labelWidth={returnTextFieldLabelWidth(inputType)}
             />
         </FormControll>
     )
