@@ -10,8 +10,10 @@ import classNames from 'classnames';
 import { OutlinedInput } from '@material-ui/core';
 
 type Props = {
-    children: React.ReactNode;
+    inputType: TextFieldType;
 };
+
+export type TextFieldType = 'email' | 'password' | 'bookName' | 'bookPrice' | 'purchaseDate'
 
 const useStyles = makeStyles((theme: Theme) => 
     createStyles({
@@ -31,16 +33,89 @@ const useStyles = makeStyles((theme: Theme) =>
     })
 );
 
-interface State {
-    password: string;
+const returnOutlinedInputType = (inputType: TextFieldType) => {
+    switch (inputType) {
+        case 'email':
+            return 'email';
+            break;
+        case 'password':
+            return 'password';
+            break;
+        case 'purchaseDate':
+            return 'date';
+            break;
+        default:
+            return 'text';
+    }
+};
+
+const returnOutlinedInputValue = (value: TextField, inputType: TextFieldType) => {
+    switch (inputType) {
+        case 'email':
+            return value.email;
+            break;
+        case 'password':
+            return value.password;
+            break;
+        case 'bookName':
+            return value.bookName;
+            break;
+        case 'bookPrice':
+            return value.bookPrice;
+            break;
+        case 'purchaseDate':
+            return value.purchaseDate;
+            break;
+    }
+};
+
+const returnInputLabel = (inputType: TextFieldType) => {
+    switch (inputType) {
+        case 'email':
+            return 'メールアドレス';
+            break;
+        case 'password':
+            return 'パスワード';
+            break;
+        case 'bookName':
+            return '書籍名';
+            break;
+        case 'bookPrice':
+            return '値段';
+            break;
+        case 'purchaseDate':
+            return '購入日';
+            break;
+    }
+};
+
+interface State extends TextField {
+    mailValidate: boolean;
+    passwordValidate: boolean;
+    showIcon: boolean;
     showPassword: boolean;
+}
+
+interface TextField {
+    email: string;
+    password: string;
+    bookName: string;
+    bookPrice: number;
+    purchaseDate: string;
 }
 
 export default function Field(props: Props) {
     const classes = useStyles();
-    const children = props.children;
+    const { inputType } = props;
     const [values, setValues] = React.useState<State>({
+        email: '',
         password: '',
+        bookName: '',
+        bookPrice: 0,
+        purchaseDate: '',
+        mailValidate: true,
+        passwordValidate: true,
+        showIcon: false,
         showPassword: false,
     });
 
@@ -55,31 +130,31 @@ export default function Field(props: Props) {
     const handleMouseDownPassword = (event: React.MouseEvent<HTMLButtonElement>) => {
         event.preventDefault();
     };
-      
+
     const textFieldClass = classNames(classes.margin, classes.textField);
 
     return (
         <FormControll className={textFieldClass} variant="outlined">
-            <InputLabel htmlFor='outlined-adornment-password'><span>{children}</span></InputLabel>
+            <InputLabel htmlFor='outlined'>{returnInputLabel(inputType)}</InputLabel>
             <OutlinedInput
-                id="outlined-adorment-password"
-                type={values.showPassword ? 'text' : 'password'}
-                value={values.password}
-                onChange={handleChange('password')}
-            endAdornment={
-              <InputAdornment position="end">
-                <IconButton
-                  aria-label="toggle password visibility"
-                  onClick={handleClickShowPassword}
-                  onMouseDown={handleMouseDownPassword}
-                  edge="end"
-                >
-                  {values.showPassword ? <VisilityIcon /> : <VisilityIconOff />}
-                </IconButton>
-              </InputAdornment>
-            }
-            labelWidth={70}
+                id="outlined"
+                type={returnOutlinedInputType(inputType)}
+                value={returnOutlinedInputValue(values, inputType)}
+                onChange={handleChange(inputType)}
+                endAdornment={
+                    <InputAdornment position="end">
+                        <IconButton
+                        aria-label="toggle password visibility"
+                        onClick={handleClickShowPassword}
+                        onMouseDown={handleMouseDownPassword}
+                        edge="end"
+                        >
+                        {values.showPassword ? <VisilityIcon /> : <VisilityIconOff />}
+                        </IconButton>
+                    </InputAdornment>
+                }
+                labelWidth={70}
             />
         </FormControll>
-    )   
+    )
 }
