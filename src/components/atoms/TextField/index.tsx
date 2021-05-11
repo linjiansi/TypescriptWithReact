@@ -131,6 +131,21 @@ export default function Field(props: Props) {
         event.preventDefault();
     };
 
+    const renderPasswordIcon = () => {
+        return (
+            <InputAdornment position="end">
+                <IconButton
+                aria-label="toggle password visibility"
+                onClick={handleClickShowPassword}
+                onMouseDown={handleMouseDownPassword}
+                edge="end"
+                >
+                {values.showPassword ? <VisilityIcon /> : <VisilityIconOff />}
+                </IconButton>
+            </InputAdornment>
+        );
+    };
+
     const textFieldClass = classNames(classes.margin, classes.textField);
 
     return (
@@ -142,16 +157,7 @@ export default function Field(props: Props) {
                 value={returnOutlinedInputValue(values, inputType)}
                 onChange={handleChange(inputType)}
                 endAdornment={
-                    inputType == 'password' ? <InputAdornment position="end">
-                        <IconButton
-                        aria-label="toggle password visibility"
-                        onClick={handleClickShowPassword}
-                        onMouseDown={handleMouseDownPassword}
-                        edge="end"
-                        >
-                        {values.showPassword ? <VisilityIcon /> : <VisilityIconOff />}
-                        </IconButton>
-                    </InputAdornment> : undefined
+                    inputType == 'password' ? renderPasswordIcon() : undefined
                 }
                 labelWidth={70}
             />
