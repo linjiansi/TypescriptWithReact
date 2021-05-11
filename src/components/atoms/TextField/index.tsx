@@ -84,7 +84,7 @@ const returnInputLabel = (inputType: TextFieldType) => {
             return '値段';
             break;
         case 'purchaseDate':
-            return '購入日';
+            return '';
             break;
     }
 };
@@ -125,7 +125,7 @@ export default function Field(props: Props) {
 
     const handleChange = (prop: keyof State) => (event: React.ChangeEvent<HTMLInputElement>) => {
         setValues({ ...values, [prop]: event.target.value });
-      };
+    };
 
     const handleMouseDownPassword = (event: React.MouseEvent<HTMLButtonElement>) => {
         event.preventDefault();
@@ -142,7 +142,7 @@ export default function Field(props: Props) {
                 value={returnOutlinedInputValue(values, inputType)}
                 onChange={handleChange(inputType)}
                 endAdornment={
-                    <InputAdornment position="end">
+                    inputType == 'password' ? <InputAdornment position="end">
                         <IconButton
                         aria-label="toggle password visibility"
                         onClick={handleClickShowPassword}
@@ -151,7 +151,7 @@ export default function Field(props: Props) {
                         >
                         {values.showPassword ? <VisilityIcon /> : <VisilityIconOff />}
                         </IconButton>
-                    </InputAdornment>
+                    </InputAdornment> : undefined
                 }
                 labelWidth={70}
             />
