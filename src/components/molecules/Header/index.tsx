@@ -29,7 +29,7 @@ export default function Header(props: Props) {
             <AppBar position="static">
                 <Toolbar>
                     <Typography variant="h6" className={classes.title}>{title}</Typography>
-                    <Button>{buttonTitle}</Button>
+                    <Button useCase={'main'}>{buttonTitle}</Button>
                 </Toolbar>
             </AppBar>
         </div>

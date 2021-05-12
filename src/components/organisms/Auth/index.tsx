@@ -28,8 +28,8 @@ export default function Auth(props: Props) {
             case 'login':
                 return (
                     <>
-                        <Button>{returnAuthType(authType)}</Button>
-                        <Button>{'サインアップへ'}</Button>
+                        <Button useCase={'auth'}>{returnAuthType(authType)}</Button>
+                        <Button useCase={'auth'}>{'サインアップへ'}</Button>
                     </>
                 );
                 break;
@@ -37,7 +37,7 @@ export default function Auth(props: Props) {
                 return (
                     <>
                         <TextField inputType='confirmPassword'></TextField>
-                        <Button>{returnAuthType(authType)}</Button>
+                        <Button useCase={'auth'}>{returnAuthType(authType)}</Button>
                     </>
                 );
         }
