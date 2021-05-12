@@ -3,8 +3,11 @@ import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 
 type Props = {
+    buttonColor: ButtonColor;
     children: React.ReactNode;
 };
+
+export type ButtonColor = 'primary' | 'secondary'
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -17,12 +20,12 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 export default function ContainedButton(props: Props) {
-    const children = props.children;
+    const { buttonColor, children } = props;
     const classes = useStyles();
 
     return (
         <div className={classes.root}>
-            <Button variant="contained">{children}</Button>
+            <Button variant="contained" color={buttonColor}>{children}</Button>
         </div>
     )
 }
