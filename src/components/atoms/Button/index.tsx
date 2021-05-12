@@ -1,31 +1,50 @@
 import React from 'react';
-import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
+import { makeStyles, createStyles, createMuiTheme, ThemeProvider, Theme } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
+import { primaryColor, secondaryColor } from '../../../utils/color';
 
 type Props = {
-    buttonColor: ButtonColor;
+    useCase: UseCase;
     children: React.ReactNode;
 };
 
-export type ButtonColor = 'primary' | 'secondary'
+export type UseCase = 'auth' | 'main';
 
-const useStyles = makeStyles((theme: Theme) =>
+const useStyles = makeStyles(() =>
     createStyles({
-        root: {
-            '& > *': {
-                margin: theme.spacing(1),  
-            },
+        auth: {
+            width: 280,
+        },
+        main: {
+            width: 100,
         },
     }),
 );
 
+const theme = createMuiTheme({
+    palette: {
+        primary: {
+            main: primaryColor(),
+        },
+        secondary: {
+            main: secondaryColor(),
+        },
+    },
+});
+
 export default function ContainedButton(props: Props) {
-    const { buttonColor, children } = props;
+    const { useCase, children } = props;
     const classes = useStyles();
 
     return (
-        <div className={classes.root}>
-            <Button variant="contained" color={buttonColor}>{children}</Button>
+        <div className={useCase == 'auth' ? classes.auth : classes.main}>
+            <ThemeProvider theme={theme}>
+            <Button
+                variant="contained"
+                color={useCase == 'auth' ? 'primary' : 'secondary'}
+                fullWidth={useCase == 'auth'}
+            >{children}</Button>
+            </ThemeProvider>
         </div>
     )
 }

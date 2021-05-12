@@ -1,5 +1,5 @@
 import React from 'react';
-import Button, { ButtonColor } from './index';
+import Button, { UseCase } from './index';
 import { withKnobs, text } from '@storybook/addon-knobs';
 
 export default {
@@ -10,6 +10,6 @@ export default {
 
 export function ContainedButton() {
     const buttonLabel = text('text', 'ボタン');
-    const buttonColor = text('color', 'primary') as ButtonColor;
-    return <Button buttonColor={buttonColor}>{buttonLabel}</Button>;
+    const useCase = text('color', 'auth') as UseCase;
+    return <Button useCase={useCase}>{buttonLabel}</Button>;
 }
