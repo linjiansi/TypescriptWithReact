@@ -13,7 +13,28 @@ type Props = {
     inputType: TextFieldType;
 };
 
-export type TextFieldType = 'email' | 'password' | 'bookName' | 'bookPrice' | 'purchaseDate'
+export type TextFieldType = 'email' |
+                            'password' |
+                            'confirmPassword' |
+                            'bookName' |
+                            'bookPrice' |
+                            'purchaseDate';
+
+interface State extends TextField {
+    mailValidate: boolean;
+    passwordValidate: boolean;
+    showIcon: boolean;
+    showPassword: boolean;
+}
+
+interface TextField {
+    email: string;
+    password: string;
+    confirmPassword: string;
+    bookName: string;
+    bookPrice: number;
+    purchaseDate: string;
+}
 
 const useStyles = makeStyles((theme: Theme) => 
     createStyles({
@@ -57,6 +78,9 @@ const returnOutlinedInputValue = (value: TextField, inputType: TextFieldType) =>
         case 'password':
             return value.password;
             break;
+        case 'confirmPassword':
+            return value.confirmPassword;
+            break;
         case 'bookName':
             return value.bookName;
             break;
@@ -76,6 +100,9 @@ const returnInputLabel = (inputType: TextFieldType) => {
             break;
         case 'password':
             return 'パスワード';
+            break;
+        case 'confirmPassword':
+            return 'もう一度確認';
             break;
         case 'bookName':
             return '書籍名';
@@ -97,6 +124,9 @@ const returnTextFieldLabelWidth = (inputType: TextFieldType) => {
         case 'password':
             return 80;
             break;
+        case 'confirmPassword':
+            return 100;
+            break;
         case 'bookName':
             return 50;
             break;
@@ -109,27 +139,13 @@ const returnTextFieldLabelWidth = (inputType: TextFieldType) => {
     }
 };
 
-interface State extends TextField {
-    mailValidate: boolean;
-    passwordValidate: boolean;
-    showIcon: boolean;
-    showPassword: boolean;
-}
-
-interface TextField {
-    email: string;
-    password: string;
-    bookName: string;
-    bookPrice: number;
-    purchaseDate: string;
-}
-
 export default function Field(props: Props) {
     const classes = useStyles();
     const { inputType } = props;
     const [values, setValues] = React.useState<State>({
         email: '',
         password: '',
+        confirmPassword: '',
         bookName: '',
         bookPrice: 0,
         purchaseDate: '',
@@ -177,7 +193,7 @@ export default function Field(props: Props) {
                 value={returnOutlinedInputValue(values, inputType)}
                 onChange={handleChange(inputType)}
                 endAdornment={
-                    inputType == 'password' ? renderPasswordIcon() : undefined
+                    (inputType == 'password') || (inputType == 'confirmPassword') ? renderPasswordIcon() : undefined
                 }
                 labelWidth={returnTextFieldLabelWidth(inputType)}
             />
