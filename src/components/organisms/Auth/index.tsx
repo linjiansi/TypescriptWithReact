@@ -36,7 +36,7 @@ export default function Auth(props: Props) {
             case 'signUp':
                 return (
                     <>
-                        <TextField inputType='password'></TextField>
+                        <TextField inputType='confirmPassword'></TextField>
                         <Button>{returnAuthType(authType)}</Button>
                     </>
                 );
