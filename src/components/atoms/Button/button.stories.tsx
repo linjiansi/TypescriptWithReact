@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from './index';
+import Button, { ButtonColor } from './index';
 import { withKnobs, text } from '@storybook/addon-knobs';
 
 export default {
@@ -10,5 +10,6 @@ export default {
 
 export function ContainedButton() {
     const buttonLabel = text('text', 'ボタン');
-    return <Button>{buttonLabel}</Button>;
+    const buttonColor = text('color', 'primary') as ButtonColor;
+    return <Button buttonColor={buttonColor}>{buttonLabel}</Button>;
 }
