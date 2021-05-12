@@ -36,7 +36,7 @@ export default function BookCard(props: Props) {
         <Card className={classes.root}>
             <CardMedia
                 className={classes.media}
-                image='../../../../public/logo192.png'
+                image='https://source.unsplash.com/random'
                 title='book'
             />
             <CardContent>
