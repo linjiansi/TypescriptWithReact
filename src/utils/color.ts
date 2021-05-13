@@ -5,3 +5,7 @@ export function primaryColor(): string {
 export function secondaryColor(): string {
     return '#3adac5';
 }
+
+export function whiteColor(): string {
+    return '#ffffff';
+}
