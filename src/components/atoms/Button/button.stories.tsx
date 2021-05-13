@@ -1,6 +1,6 @@
 import React from 'react';
 import Button, { UseCase } from './index';
-import { withKnobs, text } from '@storybook/addon-knobs';
+import { withKnobs, text, select } from '@storybook/addon-knobs';
 
 export default {
     title: 'Button',
@@ -8,8 +8,17 @@ export default {
     decorators: [withKnobs],
 };
 
-export function ContainedButton() {
+export function story() {
     const buttonLabel = text('text', 'ボタン');
-    const useCase = text('color', 'auth') as UseCase;
+
+    const label = 'useCase';
+    const option = {
+        Auth: 'auth',
+        Main: 'main',
+    };
+    const defaultValue = 'auth';
+
+    const useCase = select(label, option, defaultValue) as UseCase;
+
     return <Button useCase={useCase}>{buttonLabel}</Button>;
 }

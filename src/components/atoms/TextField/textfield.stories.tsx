@@ -1,6 +1,6 @@
 import React from 'react';
 import Field, { TextFieldType }from './index';
-import { withKnobs, text } from '@storybook/addon-knobs';
+import { withKnobs, select } from '@storybook/addon-knobs';
 
 export default {
     title: 'TextField',
@@ -8,8 +8,19 @@ export default {
     decorators: [withKnobs],
 };
 
-export function TextField() {
-    // const textFieldLabel = text('text', 'フィールド');
-    const textFieldType = text('type', 'email');
-    return <Field inputType={textFieldType as TextFieldType}></Field>;
+export function story() {
+    const label = 'textFieldLabel';
+    const option = {
+        Email: 'email',
+        Password: 'password',
+        ConfirmPassword: 'confirmPassword',
+        BookName: 'bookName',
+        BookPrice: 'bookPrice',
+        PurchaseDate: 'purchaseDate',
+    };
+    const defaultValue = 'email';
+
+    const textFieldType = select(label, option, defaultValue) as TextFieldType;
+
+    return <Field inputType={textFieldType}></Field>;
 }
