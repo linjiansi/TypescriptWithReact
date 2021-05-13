@@ -39,11 +39,11 @@ export default function ContainedButton(props: Props) {
     return (
         <div className={useCase == 'auth' ? classes.auth : classes.main}>
             <ThemeProvider theme={theme}>
-            <Button
-                variant="contained"
-                color={useCase == 'auth' ? 'primary' : 'secondary'}
-                fullWidth={useCase == 'auth'}
-            >{children}</Button>
+                <Button
+                    variant="contained"
+                    color={useCase == 'auth' ? 'primary' : 'secondary'}
+                    fullWidth={useCase == 'auth'}
+                >{children}</Button>
             </ThemeProvider>
         </div>
     )
