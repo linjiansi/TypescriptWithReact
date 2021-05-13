@@ -1,6 +1,6 @@
 import React from 'react';
 import Header, { HeaderType } from './index';
-import { withKnobs, text } from '@storybook/addon-knobs';
+import { withKnobs, select } from '@storybook/addon-knobs';
 
 export default {
     title: 'Header',
@@ -8,6 +8,16 @@ export default {
 };
 
 export function story() {
-    const headerType = text('headerType', 'main') as HeaderType;
+    const label = 'headerType';
+    const option = {
+        Main: 'main',
+        BookList: 'bookList',
+        EditBook: 'editBook',
+        AddBook: 'addBook',
+    };
+    const defaultValue = 'main';
+
+    const headerType = select(label, option, defaultValue) as HeaderType;
+
     return <Header headerType={headerType}></Header>
 }

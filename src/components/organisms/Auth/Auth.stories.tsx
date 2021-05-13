@@ -1,6 +1,6 @@
 import React from 'react';
 import Auth, { AuthType } from './index';
-import { withKnobs, text } from '@storybook/addon-knobs';
+import { withKnobs, select } from '@storybook/addon-knobs';
 
 export default {
     title: 'Auth',
@@ -9,6 +9,14 @@ export default {
 };
 
 export function story() {
-    const authType = text('authType', 'login') as AuthType
+    const label = 'authType';
+    const option = {
+        Login: 'login',
+        SignUp: 'signUp',
+    };
+    const defaultValue = 'login';
+
+    const authType = select(label, option, defaultValue) as AuthType;
+
     return <Auth authType={authType}></Auth>
 }
