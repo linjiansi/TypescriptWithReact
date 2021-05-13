@@ -2,6 +2,7 @@ import React from 'react';
 import { makeStyles, createStyles, createMuiTheme, ThemeProvider, Theme } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import { primaryColor, secondaryColor } from '../../../utils/color';
+import styled from 'styled-components';
 
 type Props = {
     useCase: UseCase;
@@ -13,10 +14,14 @@ export type UseCase = 'auth' | 'main';
 const useStyles = makeStyles(() =>
     createStyles({
         auth: {
-            width: 280,
+            width: '30ch',
+            backgroundColor: 'blue',
         },
         main: {
             width: 100,
+        },
+        button: {
+            margin: theme.spacing(1),
         },
     }),
 );
@@ -32,6 +37,11 @@ const theme = createMuiTheme({
     },
 });
 
+// const Container = styled.div`
+//     align-items: center;
+//     background-color: blue;
+// `;
+
 export default function ContainedButton(props: Props) {
     const { useCase, children } = props;
     const classes = useStyles();
@@ -40,6 +50,7 @@ export default function ContainedButton(props: Props) {
         <div className={useCase == 'auth' ? classes.auth : classes.main}>
             <ThemeProvider theme={theme}>
                 <Button
+                    className={classes.button}
                     variant="contained"
                     color={useCase == 'auth' ? 'primary' : 'secondary'}
                     fullWidth={useCase == 'auth'}
