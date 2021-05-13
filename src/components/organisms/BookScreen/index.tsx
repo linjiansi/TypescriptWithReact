@@ -13,8 +13,7 @@ export default function BookScreen(props: Props) {
     return (
         <>
             <Header
-                title={bookMode == 'edit' ? '書籍編集' : '書籍追加'}
-                buttonTitle={bookMode == 'edit' ? 'UPDATE' : 'CREATE'}
+                headerType={bookMode == 'edit' ? 'editBook' : 'addBook'}
             ></Header>
             <InputBook></InputBook>
         </>
