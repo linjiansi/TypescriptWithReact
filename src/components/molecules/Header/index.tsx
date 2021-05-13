@@ -23,6 +23,9 @@ const useStyles = makeStyles((theme: Theme) =>
         title: {
             flexGrow: 1,
         },
+        header: {
+            boxShadow: 'none',
+        },
     }),
 );
 
@@ -79,7 +82,8 @@ export default function Header(props: Props) {
         <div className={classes.root}>
             <ThemeProvider theme={theme}>
                 <AppBar position="static"
-                        color={headerType == 'main' ? 'primary' : 'secondary'}>
+                        color={headerType == 'main' ? 'primary' : 'secondary'}
+                        className={classes.header}>
                     <Toolbar>
                         <Typography variant="h6"
                                     className={classes.title}
