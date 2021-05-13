@@ -8,6 +8,7 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 import IconButton from '@material-ui/core/IconButton';
 import classNames from 'classnames';
 import { OutlinedInput } from '@material-ui/core';
+import styled from 'styled-components';
 
 type Props = {
     inputType: TextFieldType;
@@ -45,14 +46,16 @@ const useStyles = makeStyles((theme: Theme) =>
         margin: {
             margin: theme.spacing(1),
         },
-        withoutLable: {
-            marginTop: theme.spacing(3),
-        },
         textField: {
-            width: '25ch',
+            width: '30ch',
         }
     })
 );
+
+const TextFieldContainer = styled.div`
+    align-items: center;
+    background-color: red;
+`;
 
 const returnOutlinedInputType = (inputType: TextFieldType) => {
     switch (inputType) {
@@ -185,18 +188,20 @@ export default function Field(props: Props) {
     const textFieldClass = classNames(classes.margin, classes.textField);
 
     return (
-        <FormControll className={textFieldClass} variant="outlined">
-            <InputLabel htmlFor='outlined'>{returnInputLabel(inputType)}</InputLabel>
-            <OutlinedInput
-                id="outlined"
-                type={returnOutlinedInputType(inputType)}
-                value={returnOutlinedInputValue(values, inputType)}
-                onChange={handleChange(inputType)}
-                endAdornment={
-                    (inputType == 'password') || (inputType == 'confirmPassword') ? renderPasswordIcon() : undefined
-                }
-                labelWidth={returnTextFieldLabelWidth(inputType)}
-            />
-        </FormControll>
+        <TextFieldContainer>
+            <FormControll className={textFieldClass} variant="outlined">
+                <InputLabel htmlFor='outlined'>{returnInputLabel(inputType)}</InputLabel>
+                <OutlinedInput
+                    id="outlined"
+                    type={returnOutlinedInputType(inputType)}
+                    value={returnOutlinedInputValue(values, inputType)}
+                    onChange={handleChange(inputType)}
+                    endAdornment={
+                        (inputType == 'password') || (inputType == 'confirmPassword') ? renderPasswordIcon() : undefined
+                    }
+                    labelWidth={returnTextFieldLabelWidth(inputType)}
+                />
+            </FormControll>
+        </TextFieldContainer>
     )
 }
