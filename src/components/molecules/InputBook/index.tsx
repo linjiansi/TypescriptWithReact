@@ -1,8 +1,6 @@
 import React from 'react';
 import TextField from '../../atoms/TextField/index';
 import styled from 'styled-components';
-import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
-
 
 const TextFieldContainer = styled.div`
     display: flex;
