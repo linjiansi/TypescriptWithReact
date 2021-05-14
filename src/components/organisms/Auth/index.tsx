@@ -3,6 +3,7 @@ import TextField from '../../atoms/TextField/index';
 import Button from '../../atoms/Button/index';
 import { Icon } from '../../atoms/Icon/index';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 type Props = {
     authType: AuthType
@@ -35,9 +36,12 @@ export default function Auth(props: Props) {
         switch (authType) {
             case 'login':
                 return (
-                    <>
-                        <Button useCase={'auth'}>{returnAuthType(authType)}</Button>
-                        <Button useCase={'auth'}>{'サインアップへ'}</Button>
+                    <>  <Link to={'/'}>
+                            <Button useCase={'auth'}>{returnAuthType(authType)}</Button>
+                        </Link>
+                        <Link to={'/sign-up'}>
+                            <Button useCase={'auth'}>{'サインアップへ'}</Button>
+                        </Link>
                     </>
                 );
                 break;
@@ -45,7 +49,9 @@ export default function Auth(props: Props) {
                 return (
                     <>
                         <TextField inputType='confirmPassword'></TextField>
-                        <Button useCase={'auth'}>{returnAuthType(authType)}</Button>
+                        <Link to={'/'}>
+                            <Button useCase={'auth'}>{returnAuthType(authType)}</Button>
+                        </Link>
                     </>
                 );
         }
