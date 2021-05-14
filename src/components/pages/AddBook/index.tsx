@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme: Theme) =>
 const PaperContainer = styled.div`
     width: 800px;
     margin: 0 auto;
-    background-color: green;
+    
 `;
 
 export default function AddBook() {

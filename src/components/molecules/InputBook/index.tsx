@@ -6,7 +6,6 @@ const TextFieldContainer = styled.div`
     display: flex;
     flex-flow: column;
     align-items: center;
-    background-color: yellow;
 `;
 
 const Img = styled.img`
@@ -19,7 +18,6 @@ const InputBookContainer = styled.div`
     flex-flow: row;
     justify-content: space-evenly;
     align-items: center;
-    background-color: pink;
     margin: 50px 20px;
 `;
 

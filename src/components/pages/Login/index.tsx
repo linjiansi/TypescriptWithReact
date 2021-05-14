@@ -10,7 +10,6 @@ const Title = styled.h2`
 const PaperContainer = styled.div`
     width: 400px;
     margin: 0 auto;
-    background-color: green;
 `;
 
 export default function Login() {

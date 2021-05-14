@@ -26,7 +26,6 @@ const Container = styled.div`
     display: flex;
     flex-flow: column;
     align-items: center;
-    background-color: green;
 `;
 
 export default function Auth(props: Props) {
