@@ -22,5 +22,5 @@ export function story() {
 
     const textFieldType = select(label, option, defaultValue) as TextFieldType;
 
-    return <Field inputType={textFieldType}></Field>;
+    return <Field textFieldType={textFieldType}></Field>;
 }

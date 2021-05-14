@@ -28,9 +28,9 @@ export default function InputBook() {
         <InputBookContainer>
             <Img src='https://source.unsplash.com/random'></Img>
             <TextFieldContainer>
-                <TextField inputType={'bookName'}></TextField>
-                <TextField inputType={'bookPrice'}></TextField>
-                <TextField inputType={'purchaseDate'}></TextField>
+                <TextField textFieldType={'bookName'}></TextField>
+                <TextField textFieldType={'bookPrice'}></TextField>
+                <TextField textFieldType={'purchaseDate'}></TextField>
             </TextFieldContainer>
         </InputBookContainer>
     );

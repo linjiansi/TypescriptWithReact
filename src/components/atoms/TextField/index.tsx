@@ -11,7 +11,7 @@ import { OutlinedInput } from '@material-ui/core';
 import styled from 'styled-components';
 
 type Props = {
-    inputType: TextFieldType;
+    textFieldType: TextFieldType;
 };
 
 export type TextFieldType = 'email' |
@@ -57,8 +57,8 @@ const TextFieldContainer = styled.div`
     background-color: red;
 `;
 
-const returnOutlinedInputType = (inputType: TextFieldType) => {
-    switch (inputType) {
+const returnOutlinedtextFieldType = (textFieldType: TextFieldType) => {
+    switch (textFieldType) {
         case 'email':
             return 'email';
             break;
@@ -70,8 +70,8 @@ const returnOutlinedInputType = (inputType: TextFieldType) => {
     }
 };
 
-const returnOutlinedInputValue = (value: TextField, inputType: TextFieldType) => {
-    switch (inputType) {
+const returnOutlinedInputValue = (value: TextField, textFieldType: TextFieldType) => {
+    switch (textFieldType) {
         case 'email':
             return value.email;
             break;
@@ -93,8 +93,8 @@ const returnOutlinedInputValue = (value: TextField, inputType: TextFieldType) =>
     }
 };
 
-const returnInputLabel = (inputType: TextFieldType) => {
-    switch (inputType) {
+const returnInputLabel = (textFieldType: TextFieldType) => {
+    switch (textFieldType) {
         case 'email':
             return 'メールアドレス';
             break;
@@ -116,8 +116,8 @@ const returnInputLabel = (inputType: TextFieldType) => {
     }
 };
 
-const returnTextFieldLabelWidth = (inputType: TextFieldType) => {
-    switch (inputType) {
+const returnTextFieldLabelWidth = (textFieldType: TextFieldType) => {
+    switch (textFieldType) {
         case 'email':
             return 110;
             break;
@@ -139,13 +139,13 @@ const returnTextFieldLabelWidth = (inputType: TextFieldType) => {
     }
 };
 
-const checkInputType = (inputType: TextFieldType) => {
-    return (inputType == 'password') || (inputType == 'confirmPassword')
+const checktextFieldType = (textFieldType: TextFieldType) => {
+    return (textFieldType == 'password') || (textFieldType == 'confirmPassword')
 };
 
 export default function Field(props: Props) {
     const classes = useStyles();
-    const { inputType } = props;
+    const { textFieldType } = props;
     const [values, setValues] = React.useState<State>({
         email: '',
         password: '',
@@ -156,7 +156,7 @@ export default function Field(props: Props) {
         mailValidate: true,
         passwordValidate: true,
         showIcon: false,
-        showPassword: checkInputType(inputType),
+        showPassword: checktextFieldType(textFieldType),
     });
 
     const handleClickShowPassword = () => {
@@ -191,16 +191,16 @@ export default function Field(props: Props) {
     return (
         <TextFieldContainer>
             <FormControll className={textFieldClass} variant="outlined">
-                <InputLabel htmlFor='outlined'>{returnInputLabel(inputType)}</InputLabel>
+                <InputLabel htmlFor='outlined'>{returnInputLabel(textFieldType)}</InputLabel>
                 <OutlinedInput
                     id="outlined"
-                    type={values.showPassword ? 'password' : returnOutlinedInputType(inputType)}
-                    value={returnOutlinedInputValue(values, inputType)}
-                    onChange={handleChange(inputType)}
+                    type={values.showPassword ? 'password' : returnOutlinedtextFieldType(textFieldType)}
+                    value={returnOutlinedInputValue(values, textFieldType)}
+                    onChange={handleChange(textFieldType)}
                     endAdornment={
-                        (inputType == 'password') || (inputType == 'confirmPassword') ? renderPasswordIcon() : undefined
+                        (textFieldType == 'password') || (textFieldType == 'confirmPassword') ? renderPasswordIcon() : undefined
                     }
-                    labelWidth={returnTextFieldLabelWidth(inputType)}
+                    labelWidth={returnTextFieldLabelWidth(textFieldType)}
                 />
             </FormControll>
         </TextFieldContainer>
