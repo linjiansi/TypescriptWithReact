@@ -62,9 +62,6 @@ const returnOutlinedInputType = (inputType: TextFieldType) => {
         case 'email':
             return 'email';
             break;
-        case 'password':
-            return 'password';
-            break;
         case 'purchaseDate':
             return 'date';
             break;
@@ -142,6 +139,10 @@ const returnTextFieldLabelWidth = (inputType: TextFieldType) => {
     }
 };
 
+const checkInputType = (inputType: TextFieldType) => {
+    return (inputType == 'password') || (inputType == 'confirmPassword')
+};
+
 export default function Field(props: Props) {
     const classes = useStyles();
     const { inputType } = props;
@@ -155,7 +156,7 @@ export default function Field(props: Props) {
         mailValidate: true,
         passwordValidate: true,
         showIcon: false,
-        showPassword: false,
+        showPassword: checkInputType(inputType),
     });
 
     const handleClickShowPassword = () => {
@@ -193,7 +194,7 @@ export default function Field(props: Props) {
                 <InputLabel htmlFor='outlined'>{returnInputLabel(inputType)}</InputLabel>
                 <OutlinedInput
                     id="outlined"
-                    type={returnOutlinedInputType(inputType)}
+                    type={values.showPassword ? 'password' : returnOutlinedInputType(inputType)}
                     value={returnOutlinedInputValue(values, inputType)}
                     onChange={handleChange(inputType)}
                     endAdornment={
