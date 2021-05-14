@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import VisilityIcon from '@material-ui/icons/Visibility';
 import VisilityIconOff from '@material-ui/icons/VisibilityOff';
@@ -54,7 +54,6 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const TextFieldContainer = styled.div`
     align-items: center;
-    background-color: red;
 `;
 
 const returnOutlinedtextFieldType = (textFieldType: TextFieldType) => {
@@ -158,6 +157,7 @@ export default function Field(props: Props) {
         showIcon: false,
         showPassword: checktextFieldType(textFieldType),
     });
+    const inputRef = useRef<HTMLInputElement>(null);
 
     const handleClickShowPassword = () => {
         setValues({ ...values, showPassword: !values.showPassword });
@@ -186,6 +186,16 @@ export default function Field(props: Props) {
         );
     };
 
+    const validate = () => {
+        if (textFieldType == 'password' || textFieldType == 'email' || textFieldType == 'confirmPassword') {
+            const ref = inputRef.current;
+            if (ref !== null) {
+                return !ref.validity.valid
+            }
+        }
+        return false;
+    };
+
     const textFieldClass = classNames(classes.margin, classes.textField);
 
     return (
@@ -193,6 +203,7 @@ export default function Field(props: Props) {
             <FormControll className={textFieldClass} variant="outlined">
                 <InputLabel htmlFor='outlined'>{returnInputLabel(textFieldType)}</InputLabel>
                 <OutlinedInput
+                    error={validate()}
                     id="outlined"
                     type={values.showPassword ? 'password' : returnOutlinedtextFieldType(textFieldType)}
                     value={returnOutlinedInputValue(values, textFieldType)}
@@ -201,6 +212,8 @@ export default function Field(props: Props) {
                         (textFieldType == 'password') || (textFieldType == 'confirmPassword') ? renderPasswordIcon() : undefined
                     }
                     labelWidth={returnTextFieldLabelWidth(textFieldType)}
+                    inputRef={inputRef}
+                    inputProps={{ minlength: 6 }}
                 />
             </FormControll>
         </TextFieldContainer>
