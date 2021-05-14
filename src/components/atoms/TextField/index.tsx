@@ -142,7 +142,7 @@ const checktextFieldType = (textFieldType: TextFieldType) => {
     return (textFieldType == 'password') || (textFieldType == 'confirmPassword')
 };
 
-export default function Field(props: Props) {
+export default function TextField(props: Props) {
     const classes = useStyles();
     const { textFieldType } = props;
     const [values, setValues] = React.useState<State>({
