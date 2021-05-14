@@ -9,4 +9,4 @@ export default {
 
 const Template: Story = (args) => <Icon {...args} />;
 
-export const LockIcon = Template.bind({});
+export const story = Template.bind({});
