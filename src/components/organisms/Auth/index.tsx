@@ -48,7 +48,7 @@ export default function Auth(props: Props) {
             case 'signUp':
                 return (
                     <>
-                        <TextField inputType='confirmPassword'></TextField>
+                        <TextField textFieldType='confirmPassword'></TextField>
                         <Link to={'/'}>
                             <Button useCase={'auth'}>{returnAuthType(authType)}</Button>
                         </Link>
@@ -61,8 +61,8 @@ export default function Auth(props: Props) {
         <Container>
             <Icon></Icon>
             <h2>{returnAuthType(authType)}</h2>
-            <TextField inputType={'email'}></TextField>
-            <TextField inputType={'password'}></TextField>
+            <TextField textFieldType={'email'}></TextField>
+            <TextField textFieldType={'password'}></TextField>
             {renderComponentByAuthType(authType)}
         </Container>
     );
