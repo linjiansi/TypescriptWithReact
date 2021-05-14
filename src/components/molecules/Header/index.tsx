@@ -5,6 +5,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { primaryColor, whiteColor } from '../../../utils/color';
+import { Link } from 'react-router-dom';
 
 type Props = {
     headerType: HeaderType,
@@ -63,6 +64,23 @@ const returnButtonTitle = (headerType: HeaderType) => {
     }
 };
 
+const returnRouterPath = (headerType: HeaderType) => {
+    switch (headerType) {
+        case 'main':
+            return '/login';
+            break;
+        case 'bookList':
+            return '/add';
+            break;
+        case 'addBook':
+            return '/';
+            break;
+        case 'editBook':
+            return '/';
+            break;
+    }
+}
+
 const theme = createMuiTheme({
     palette: {
         primary: {
@@ -88,7 +106,9 @@ export default function Header(props: Props) {
                         <Typography variant="h6"
                                     className={classes.title}
                         >{returnHeaderTitle(headerType)}</Typography>
-                        <Button useCase={'main'}>{returnButtonTitle(headerType)}</Button>
+                        <Link to={returnRouterPath(headerType)}>
+                            <Button useCase={'main'}>{returnButtonTitle(headerType)}</Button>
+                        </Link>
                     </Toolbar>
                 </AppBar>
             </ThemeProvider>
