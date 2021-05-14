@@ -15,13 +15,13 @@ const useStyles = makeStyles(() =>
     createStyles({
         auth: {
             width: '30ch',
-            backgroundColor: 'blue',
         },
         main: {
             width: 100,
         },
         button: {
-            margin: theme.spacing(1),
+            marginTop: theme.spacing(1),
+            marginBottom: theme.spacing(1),
         },
     }),
 );
@@ -36,11 +36,6 @@ const theme = createMuiTheme({
         },
     },
 });
-
-// const Container = styled.div`
-//     align-items: center;
-//     background-color: blue;
-// `;
 
 export default function ContainedButton(props: Props) {
     const { useCase, children } = props;
