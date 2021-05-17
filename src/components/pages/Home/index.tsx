@@ -5,23 +5,22 @@ import Paper from '@material-ui/core/Paper';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme: Theme) =>
-    createStyles({
-        paper: {
-            margin: theme.spacing(8),
-        },
-    }),
+  createStyles({
+    paper: {
+      margin: theme.spacing(8),
+    },
+  })
 );
 
-
 export default function Home() {
-    const classes = useStyles();
+  const classes = useStyles();
 
-    return (
-        <>
-            <Header headerType={'main'}></Header>
-            <Paper elevation={8} className={classes.paper}>
-                <BookList></BookList>
-            </Paper>
-        </>
-    );
+  return (
+    <>
+      <Header headerType={'main'}></Header>
+      <Paper elevation={8} className={classes.paper}>
+        <BookList></BookList>
+      </Paper>
+    </>
+  );
 }

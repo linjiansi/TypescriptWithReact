@@ -4,23 +4,23 @@ import Paper from '@material-ui/core/Paper';
 import styled from 'styled-components';
 
 const Title = styled.h2`
-    text-align: center;
+  text-align: center;
 `;
 
 const PaperContainer = styled.div`
-    width: 400px;
-    margin: 0 auto;
+  width: 400px;
+  margin: 0 auto;
 `;
 
 export default function Login() {
-    return (
-        <>
-            <Title>Book Manager</Title>
-            <PaperContainer>
-                <Paper elevation={8}>
-                    <Auth authType={'login'}></Auth>
-                </Paper>
-            </PaperContainer>
-        </>
-    );
+  return (
+    <>
+      <Title>Book Manager</Title>
+      <PaperContainer>
+        <Paper elevation={8}>
+          <Auth authType={'login'}></Auth>
+        </Paper>
+      </PaperContainer>
+    </>
+  );
 }
