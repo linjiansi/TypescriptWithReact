@@ -1,36 +1,17 @@
 import React from 'react';
-import {
-  createStyles,
-  makeStyles,
-  createMuiTheme,
-  ThemeProvider,
-} from '@material-ui/core/styles';
+import { ThemeProvider } from '@material-ui/core/styles';
 import Button from '../../atoms/Button/index';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import { primaryColor, whiteColor } from '../../../utils/color';
 import { Link } from 'react-router-dom';
+import { theme, useStyles } from './style';
 
 type Props = {
   headerType: HeaderType;
 };
 
 export type HeaderType = 'main' | 'bookList' | 'editBook' | 'addBook';
-
-const useStyles = makeStyles(() =>
-  createStyles({
-    root: {
-      flexGrow: 1,
-    },
-    title: {
-      flexGrow: 1,
-    },
-    header: {
-      boxShadow: 'none',
-    },
-  })
-);
 
 const returnHeaderTitle = (headerType: HeaderType) => {
   switch (headerType) {
@@ -70,17 +51,6 @@ const returnRouterPath = (headerType: HeaderType) => {
       return '/';
   }
 };
-
-const theme = createMuiTheme({
-  palette: {
-    primary: {
-      main: primaryColor(),
-    },
-    secondary: {
-      main: whiteColor(),
-    },
-  },
-});
 
 export default function Header(props: Props) {
   const { headerType } = props;

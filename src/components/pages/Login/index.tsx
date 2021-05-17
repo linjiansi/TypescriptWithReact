@@ -1,16 +1,7 @@
 import React from 'react';
 import Auth from '../../organisms/Auth/index';
 import Paper from '@material-ui/core/Paper';
-import styled from 'styled-components';
-
-const Title = styled.h2`
-  text-align: center;
-`;
-
-const PaperContainer = styled.div`
-  width: 400px;
-  margin: 0 auto;
-`;
+import { PaperContainer, Title } from './style';
 
 export default function Login() {
   return (

@@ -1,25 +1,6 @@
 import React from 'react';
 import TextField from '../../atoms/TextField/index';
-import styled from 'styled-components';
-
-const TextFieldContainer = styled.div`
-  display: flex;
-  flex-flow: column;
-  align-items: center;
-`;
-
-const Img = styled.img`
-  width: 16rem;
-  height: 16rem;
-`;
-
-const InputBookContainer = styled.div`
-  display: flex;
-  flex-flow: row;
-  justify-content: space-evenly;
-  align-items: center;
-  margin: 50px 20px;
-`;
+import { Img, InputBookContainer, TextFieldContainer } from './style';
 
 export default function InputBook() {
   return (
