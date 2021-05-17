@@ -1,6 +1,6 @@
 import React from 'react';
 import Book from './index';
-import { withKnobs, text, number, date } from '@storybook/addon-knobs';
+import { withKnobs, text, number } from '@storybook/addon-knobs';
 
 export default {
   title: 'Book',
