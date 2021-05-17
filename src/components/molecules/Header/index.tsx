@@ -19,7 +19,7 @@ type Props = {
 
 export type HeaderType = 'main' | 'bookList' | 'editBook' | 'addBook';
 
-const useStyles = makeStyles((theme: Theme) =>
+const useStyles = makeStyles(() =>
   createStyles({
     root: {
       flexGrow: 1,
