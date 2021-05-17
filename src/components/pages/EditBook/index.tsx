@@ -6,29 +6,29 @@ import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import styled from 'styled-components';
 
 const useStyles = makeStyles((theme: Theme) =>
-    createStyles({
-        paper: {
-            margin: theme.spacing(8),
-        },
-    }),
+  createStyles({
+    paper: {
+      margin: theme.spacing(8),
+    },
+  })
 );
 
 const PaperContainer = styled.div`
-    width: 800px;
-    margin: 0 auto;
+  width: 800px;
+  margin: 0 auto;
 `;
 
 export default function EditBook() {
-    const classes = useStyles();
+  const classes = useStyles();
 
-    return (
-        <>  
-            <Header headerType={'main'}></Header>
-            <PaperContainer>
-                <Paper elevation={8} className={classes.paper}>
-                    <BookScreen bookMode='edit'></BookScreen>
-                </Paper>
-            </PaperContainer>
-        </>
-    );
+  return (
+    <>
+      <Header headerType={'main'}></Header>
+      <PaperContainer>
+        <Paper elevation={8} className={classes.paper}>
+          <BookScreen bookMode="edit"></BookScreen>
+        </Paper>
+      </PaperContainer>
+    </>
+  );
 }
