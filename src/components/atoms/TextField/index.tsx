@@ -178,12 +178,10 @@ export default function TextField(props: Props) {
     if (
       textFieldType == 'password' ||
       textFieldType == 'email' ||
-      textFieldType == 'confirmPassword'
+      textFieldType == 'confirmPassword' ||
+      inputRef.current !== null
     ) {
-      const ref = inputRef.current;
-      if (ref !== null) {
-        return !ref.validity.valid;
-      }
+      return !inputRef.current?.validity.valid;
     }
     return false;
   };
