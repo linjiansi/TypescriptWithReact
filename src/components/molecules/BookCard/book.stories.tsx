@@ -9,9 +9,7 @@ export default {
 };
 
 export function story() {
-  // const defaultValue = new Date('May 10 2021');
   const bookName = text('name', 'Book');
   const bookPrice = number('price', 1080);
-  // const purchaseDate = date('purchase', defaultValue);
   return <Book bookName={bookName} bookPrice={bookPrice}></Book>;
 }
