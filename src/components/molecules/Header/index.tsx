@@ -37,16 +37,12 @@ const returnHeaderTitle = (headerType: HeaderType) => {
   switch (headerType) {
     case 'main':
       return 'BookManager';
-      break;
     case 'bookList':
       return '書籍一覧';
-      break;
     case 'addBook':
       return '書籍追加';
-      break;
     case 'editBook':
       return '書籍編集';
-      break;
   }
 };
 
@@ -54,16 +50,12 @@ const returnButtonTitle = (headerType: HeaderType) => {
   switch (headerType) {
     case 'main':
       return 'LOGOUT';
-      break;
     case 'bookList':
       return 'CREATE';
-      break;
     case 'addBook':
       return 'CREATE';
-      break;
     case 'editBook':
       return 'UPDATE';
-      break;
   }
 };
 
@@ -71,16 +63,12 @@ const returnRouterPath = (headerType: HeaderType) => {
   switch (headerType) {
     case 'main':
       return '/login';
-      break;
     case 'bookList':
       return '/add';
-      break;
     case 'addBook':
       return '/';
-      break;
     case 'editBook':
       return '/';
-      break;
   }
 };
 
