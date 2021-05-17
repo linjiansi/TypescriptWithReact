@@ -2,7 +2,6 @@ import React from 'react';
 import {
   createStyles,
   makeStyles,
-  Theme,
   createMuiTheme,
   ThemeProvider,
 } from '@material-ui/core/styles';
