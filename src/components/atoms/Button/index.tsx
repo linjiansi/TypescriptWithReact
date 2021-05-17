@@ -4,11 +4,9 @@ import {
   createStyles,
   createMuiTheme,
   ThemeProvider,
-  Theme,
 } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import { primaryColor, secondaryColor } from '../../../utils/color';
-import styled from 'styled-components';
 
 type Props = {
   useCase: UseCase;
