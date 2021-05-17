@@ -2,8 +2,8 @@ import React from 'react';
 import TextField from '../../atoms/TextField/index';
 import Button from '../../atoms/Button/index';
 import { Icon } from '../../atoms/Icon/index';
-import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { Container } from './style';
 
 type Props = {
   authType: AuthType;
@@ -19,12 +19,6 @@ const returnAuthType = (authType: AuthType) => {
       return 'サインアップ';
   }
 };
-
-const Container = styled.div`
-  display: flex;
-  flex-flow: column;
-  align-items: center;
-`;
 
 export default function Auth(props: Props) {
   const { authType } = props;
