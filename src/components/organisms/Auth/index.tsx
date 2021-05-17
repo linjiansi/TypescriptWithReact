@@ -15,10 +15,8 @@ const returnAuthType = (authType: AuthType) => {
   switch (authType) {
     case 'login':
       return 'ログイン';
-      break;
     case 'signUp':
       return 'サインアップ';
-      break;
   }
 };
 
@@ -45,7 +43,6 @@ export default function Auth(props: Props) {
             </Link>
           </>
         );
-        break;
       case 'signUp':
         return (
           <>

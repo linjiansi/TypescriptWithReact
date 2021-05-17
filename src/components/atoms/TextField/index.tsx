@@ -61,10 +61,8 @@ const returnOutlinedtextFieldType = (textFieldType: TextFieldType) => {
   switch (textFieldType) {
     case 'email':
       return 'email';
-      break;
     case 'purchaseDate':
       return 'date';
-      break;
     default:
       return 'text';
   }
@@ -77,22 +75,16 @@ const returnOutlinedInputValue = (
   switch (textFieldType) {
     case 'email':
       return value.email;
-      break;
     case 'password':
       return value.password;
-      break;
     case 'confirmPassword':
       return value.confirmPassword;
-      break;
     case 'bookName':
       return value.bookName;
-      break;
     case 'bookPrice':
       return value.bookPrice;
-      break;
     case 'purchaseDate':
       return value.purchaseDate;
-      break;
   }
 };
 
@@ -100,22 +92,16 @@ const returnInputLabel = (textFieldType: TextFieldType) => {
   switch (textFieldType) {
     case 'email':
       return 'メールアドレス';
-      break;
     case 'password':
       return 'パスワード';
-      break;
     case 'confirmPassword':
       return 'もう一度確認';
-      break;
     case 'bookName':
       return '書籍名';
-      break;
     case 'bookPrice':
       return '値段';
-      break;
     case 'purchaseDate':
       return '';
-      break;
   }
 };
 
@@ -123,22 +109,16 @@ const returnTextFieldLabelWidth = (textFieldType: TextFieldType) => {
   switch (textFieldType) {
     case 'email':
       return 110;
-      break;
     case 'password':
       return 80;
-      break;
     case 'confirmPassword':
       return 100;
-      break;
     case 'bookName':
       return 50;
-      break;
     case 'bookPrice':
       return 40;
-      break;
     case 'purchaseDate':
       return 0;
-      break;
   }
 };
 
