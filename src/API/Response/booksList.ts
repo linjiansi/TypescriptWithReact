@@ -1,11 +1,13 @@
-export type BooksListModel = {
+import { ResponseModel } from '../Common/responseModel';
+
+export interface BooksListModel extends ResponseModel {
     status: number,
     result: BookListResult[],
     total_count: number,
     total_pages: number,
     current_page: number,
     limit: number,
-};
+}
 
 type BookListResult = {
     id: number,

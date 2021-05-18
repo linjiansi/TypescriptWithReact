@@ -1,7 +1,9 @@
-export type AddBookModel = {
+import { ResponseModel } from '../Common/responseModel'
+
+export interface AddBookModel extends ResponseModel {
     status: number,
     result: AddBookResult,
-};
+}
 
 type AddBookResult = {
     id: number,
