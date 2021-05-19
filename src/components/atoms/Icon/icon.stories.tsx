@@ -1,6 +1,6 @@
 import React from 'react';
 import { Story } from '@storybook/react';
-import { Icon } from './index';
+import Icon from './index';
 
 export default {
   title: 'Icon',
