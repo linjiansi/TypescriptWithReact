@@ -1,5 +1,5 @@
 import React from 'react';
-import { SignUpRouter } from './index';
+import { SignUpRouter } from './signUpRouter';
 
 export default {
   title: 'SignUp',

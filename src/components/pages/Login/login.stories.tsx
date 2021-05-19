@@ -1,5 +1,5 @@
 import React from 'react';
-import { LoginRouter } from './index';
+import { LoginRouter } from './loginRouter';
 
 export default {
   title: 'Login',

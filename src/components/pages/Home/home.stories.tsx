@@ -1,5 +1,5 @@
 import React from 'react';
-import { HomeRouter } from './index';
+import { HomeRouter } from './homeRouter';
 
 export default {
   title: 'Home',

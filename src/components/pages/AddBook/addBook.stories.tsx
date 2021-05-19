@@ -1,5 +1,5 @@
 import React from 'react';
-import { AddBookRouter } from './index';
+import { AddBookRouter } from './addBookRouter';
 
 export default {
   title: 'AddBook',
