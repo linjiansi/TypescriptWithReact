@@ -1,11 +1,11 @@
 import React from 'react';
-import { Home } from './index';
+import { HomeRouter } from './index';
 
 export default {
   title: 'Home',
-  component: Home,
+  component: HomeRouter,
 };
 
 export function story() {
-  return <Home></Home>;
+  return <HomeRouter></HomeRouter>;
 }

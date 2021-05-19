@@ -3,7 +3,7 @@ import { AuthComponent } from '../../organisms/Auth/index';
 import Paper from '@material-ui/core/Paper';
 import { PaperContainer, Title } from './style';
 
-export function SignUp() {
+export function SignUpRouter() {
   return (
     <>
       <Title>Book Manager</Title>
