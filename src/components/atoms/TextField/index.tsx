@@ -21,7 +21,7 @@ export type TextFieldType =
   | 'bookPrice'
   | 'purchaseDate';
 
-interface State extends TextField {
+interface TextFieldState extends TextField {
   mailValidate: boolean;
   passwordValidate: boolean;
   showIcon: boolean;
@@ -102,14 +102,14 @@ const returnTextFieldLabelWidth = (textFieldType: TextFieldType) => {
   }
 };
 
-const checktextFieldType = (textFieldType: TextFieldType) => {
+const isPassword = (textFieldType: TextFieldType) => {
   return textFieldType == 'password' || textFieldType == 'confirmPassword';
 };
 
 export default function TextField(props: Props) {
   const classes = useStyles();
   const { textFieldType } = props;
-  const [values, setValues] = useState<State>({
+  const [values, setValues] = useState<TextFieldState>({
     email: '',
     password: '',
     confirmPassword: '',
@@ -119,7 +119,7 @@ export default function TextField(props: Props) {
     mailValidate: true,
     passwordValidate: true,
     showIcon: false,
-    showPassword: checktextFieldType(textFieldType),
+    showPassword: isPassword(textFieldType),
   });
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -127,7 +127,7 @@ export default function TextField(props: Props) {
     setValues({ ...values, showPassword: !values.showPassword });
   };
 
-  const handleChange = (prop: keyof State) => (
+  const handleChange = (prop: keyof TextFieldState) => (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
     setValues({ ...values, [prop]: event.target.value });
@@ -154,7 +154,7 @@ export default function TextField(props: Props) {
     );
   };
 
-  const validate = () => {
+  const isValid = () => {
     if (
       textFieldType == 'password' ||
       textFieldType == 'email' ||
@@ -175,7 +175,7 @@ export default function TextField(props: Props) {
           {returnInputLabel(textFieldType)}
         </InputLabel>
         <OutlinedInput
-          error={validate()}
+          error={isValid()}
           id="outlined"
           type={
             values.showPassword
@@ -191,7 +191,7 @@ export default function TextField(props: Props) {
           }
           labelWidth={returnTextFieldLabelWidth(textFieldType)}
           inputRef={inputRef}
-          inputProps={{ minlength: 6 }}
+          inputProps={isValid() ? { minlength: 6 } : undefined }
         />
       </FormControll>
     </TextFieldContainer>
