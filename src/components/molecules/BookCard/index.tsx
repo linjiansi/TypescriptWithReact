@@ -15,6 +15,7 @@ type Props = {
 export default function BookCard(props: Props) {
   const { bookName, bookPrice, purchaseDate } = props;
   const classes = useStyles();
+
   return (
     <Link to={'/edit'}>
       <Card className={classes.root}>

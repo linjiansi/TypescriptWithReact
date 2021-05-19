@@ -10,7 +10,6 @@ export default {
 
 export function story() {
   const buttonLabel = text('text', 'ボタン');
-
   const label = 'useCase';
   const option = {
     Auth: 'auth',
