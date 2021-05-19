@@ -1,5 +1,5 @@
 import React from 'react';
-import AddBook from './index';
+import { AddBook } from './index';
 
 export default {
   title: 'AddBook',

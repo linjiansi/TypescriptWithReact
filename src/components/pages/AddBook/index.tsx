@@ -1,18 +1,18 @@
 import React from 'react';
-import Header from '../../molecules/Header/index';
-import BookScreen from '../../organisms/BookScreen/index';
+import { HeaderComponent } from '../../molecules/Header/index';
+import { BookScreenComponent } from '../../organisms/BookScreen/index';
 import Paper from '@material-ui/core/Paper';
 import { PaperContainer, useStyles } from './style';
 
-export default function AddBook() {
+export function AddBook() {
   const classes = useStyles();
 
   return (
     <>
-      <Header headerType={'main'}></Header>
+      <HeaderComponent headerType={'main'}></HeaderComponent>
       <PaperContainer>
         <Paper elevation={8} className={classes.paper}>
-          <BookScreen bookMode="add"></BookScreen>
+          <BookScreenComponent bookMode="add"></BookScreenComponent>
         </Paper>
       </PaperContainer>
     </>

@@ -1,10 +1,10 @@
 import React from 'react';
-import Button, { UseCase } from './index';
+import { ButtonComponent, UseCase } from './index';
 import { withKnobs, text, select } from '@storybook/addon-knobs';
 
 export default {
   title: 'Button',
-  component: Button,
+  component: ButtonComponent,
   decorators: [withKnobs],
 };
 
@@ -19,5 +19,5 @@ export function story() {
 
   const useCase = select(label, option, defaultValue) as UseCase;
 
-  return <Button useCase={useCase}>{buttonLabel}</Button>;
+  return <ButtonComponent useCase={useCase}>{buttonLabel}</ButtonComponent>;
 }

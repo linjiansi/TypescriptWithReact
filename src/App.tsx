@@ -1,11 +1,11 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-import Home from './components/pages/Home/';
-import AddBook from './components/pages/AddBook';
-import EditBook from './components/pages/EditBook';
-import Login from './components/pages/Login';
-import SignUp from './components/pages/SignUp';
+import { Home } from './components/pages/Home/';
+import { AddBook } from './components/pages/AddBook';
+import { EditBook } from './components/pages/EditBook';
+import { Login } from './components/pages/Login';
+import { SignUp } from './components/pages/SignUp';
 
 function App() {
   return (

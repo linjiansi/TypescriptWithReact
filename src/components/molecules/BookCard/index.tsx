@@ -12,7 +12,7 @@ type Props = {
   purchaseDate?: string;
 };
 
-export default function BookCard(props: Props) {
+export function BookCardComponent(props: Props) {
   const { bookName, bookPrice, purchaseDate } = props;
   const classes = useStyles();
 

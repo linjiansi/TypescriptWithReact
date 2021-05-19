@@ -1,6 +1,6 @@
 import React from 'react';
 import { ThemeProvider } from '@material-ui/core/styles';
-import Button from '../../atoms/Button/index';
+import { ButtonComponent } from '../../atoms/Button/index';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -52,7 +52,7 @@ const returnRouterPath = (headerType: HeaderType) => {
   }
 };
 
-export default function Header(props: Props) {
+export function HeaderComponent(props: Props) {
   const { headerType } = props;
   const classes = useStyles();
 
@@ -69,7 +69,7 @@ export default function Header(props: Props) {
               {returnHeaderTitle(headerType)}
             </Typography>
             <Link to={returnRouterPath(headerType)}>
-              <Button useCase={'main'}>{returnButtonTitle(headerType)}</Button>
+              <ButtonComponent useCase={'main'}>{returnButtonTitle(headerType)}</ButtonComponent>
             </Link>
           </Toolbar>
         </AppBar>

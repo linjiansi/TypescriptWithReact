@@ -1,10 +1,10 @@
 import React from 'react';
-import TextField, { TextFieldType } from './index';
+import { TextFieldComponent, TextFieldType } from './index';
 import { withKnobs, select } from '@storybook/addon-knobs';
 
 export default {
   title: 'TextField',
-  component: TextField,
+  component: TextFieldComponent,
   decorators: [withKnobs],
 };
 
@@ -22,5 +22,5 @@ export function story() {
 
   const textFieldType = select(label, option, defaultValue) as TextFieldType;
 
-  return <TextField textFieldType={textFieldType}></TextField>;
+  return <TextFieldComponent textFieldType={textFieldType}></TextFieldComponent>;
 }

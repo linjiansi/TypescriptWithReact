@@ -1,7 +1,7 @@
 import React from 'react';
-import TextField from '../../atoms/TextField/index';
-import Button from '../../atoms/Button/index';
-import { Icon } from '../../atoms/Icon/index';
+import { TextFieldComponent } from '../../atoms/TextField/index';
+import { ButtonComponent } from '../../atoms/Button/index';
+import { IconComponent } from '../../atoms/Icon/index';
 import { Link } from 'react-router-dom';
 import { Container } from './style';
 
@@ -20,7 +20,7 @@ const returnAuthType = (authType: AuthType) => {
   }
 };
 
-export default function Auth(props: Props) {
+export function AuthComponent(props: Props) {
   const { authType } = props;
 
   const renderComponentByAuthType = (authType: AuthType) => {
@@ -30,19 +30,19 @@ export default function Auth(props: Props) {
           <>
             {' '}
             <Link to={'/'}>
-              <Button useCase={'auth'}>{returnAuthType(authType)}</Button>
+              <ButtonComponent useCase={'auth'}>{returnAuthType(authType)}</ButtonComponent>
             </Link>
             <Link to={'/sign-up'}>
-              <Button useCase={'auth'}>{'サインアップへ'}</Button>
+              <ButtonComponent useCase={'auth'}>{'サインアップへ'}</ButtonComponent>
             </Link>
           </>
         );
       case 'signUp':
         return (
           <>
-            <TextField textFieldType="confirmPassword"></TextField>
+            <TextFieldComponent textFieldType="confirmPassword"></TextFieldComponent>
             <Link to={'/'}>
-              <Button useCase={'auth'}>{returnAuthType(authType)}</Button>
+              <ButtonComponent useCase={'auth'}>{returnAuthType(authType)}</ButtonComponent>
             </Link>
           </>
         );
@@ -51,10 +51,10 @@ export default function Auth(props: Props) {
 
   return (
     <Container>
-      <Icon></Icon>
+      <IconComponent></IconComponent>
       <h2>{returnAuthType(authType)}</h2>
-      <TextField textFieldType={'email'}></TextField>
-      <TextField textFieldType={'password'}></TextField>
+      <TextFieldComponent textFieldType={'email'}></TextFieldComponent>
+      <TextFieldComponent textFieldType={'password'}></TextFieldComponent>
       {renderComponentByAuthType(authType)}
     </Container>
   );

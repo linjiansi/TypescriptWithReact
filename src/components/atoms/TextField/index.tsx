@@ -106,7 +106,7 @@ const isPassword = (textFieldType: TextFieldType) => {
   return textFieldType == 'password' || textFieldType == 'confirmPassword';
 };
 
-export default function TextField(props: Props) {
+export function TextFieldComponent(props: Props) {
   const classes = useStyles();
   const { textFieldType } = props;
   const [values, setValues] = useState<TextFieldState>({
