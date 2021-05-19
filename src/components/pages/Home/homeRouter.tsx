@@ -4,7 +4,7 @@ import { BookListComponent } from '../../organisms/BookList/index';
 import Paper from '@material-ui/core/Paper';
 import { useStyles } from './style';
 
-export function Home() {
+export function HomeRouter() {
   const classes = useStyles();
 
   return (
