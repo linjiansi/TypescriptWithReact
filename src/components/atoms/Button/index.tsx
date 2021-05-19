@@ -10,7 +10,7 @@ type Props = {
 
 export type UseCase = 'auth' | 'main';
 
-export default function ContainedButton(props: Props) {
+export function ButtonComponent(props: Props) {
   const { useCase, children } = props;
   const classes = useStyles();
 

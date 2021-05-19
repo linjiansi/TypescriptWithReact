@@ -1,10 +1,10 @@
 import React from 'react';
-import Header, { HeaderType } from './index';
+import { HeaderComponent, HeaderType } from './index';
 import { select } from '@storybook/addon-knobs';
 
 export default {
   title: 'Header',
-  component: Header,
+  component: HeaderComponent,
 };
 
 export function story() {
@@ -19,5 +19,5 @@ export function story() {
 
   const headerType = select(label, option, defaultValue) as HeaderType;
 
-  return <Header headerType={headerType}></Header>;
+  return <HeaderComponent headerType={headerType}></HeaderComponent>;
 }

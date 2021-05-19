@@ -1,11 +1,11 @@
 import React from 'react';
-import InputBook from './index';
+import { InputBookComponent } from './index';
 
 export default {
   title: 'InputBook',
-  component: InputBook,
+  component: InputBookComponent,
 };
 
 export function story() {
-  return <InputBook></InputBook>;
+  return <InputBookComponent></InputBookComponent>;
 }

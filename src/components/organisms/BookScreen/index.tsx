@@ -1,6 +1,6 @@
 import React from 'react';
-import InputBook from '../../molecules/InputBook/index';
-import Header from '../../molecules/Header/index';
+import { InputBookComponent } from '../../molecules/InputBook/index';
+import { HeaderComponent } from '../../molecules/Header/index';
 
 type Props = {
   bookMode: BookMode;
@@ -8,13 +8,13 @@ type Props = {
 
 export type BookMode = 'edit' | 'add';
 
-export default function BookScreen(props: Props) {
+export function BookScreenComponent(props: Props) {
   const { bookMode } = props;
 
   return (
     <>
-      <Header headerType={bookMode == 'edit' ? 'editBook' : 'addBook'}></Header>
-      <InputBook></InputBook>
+      <HeaderComponent headerType={bookMode == 'edit' ? 'editBook' : 'addBook'}></HeaderComponent>
+      <InputBookComponent></InputBookComponent>
     </>
   );
 }

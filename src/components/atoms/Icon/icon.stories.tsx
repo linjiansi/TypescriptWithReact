@@ -1,12 +1,12 @@
 import React from 'react';
 import { Story } from '@storybook/react';
-import Icon from './index';
+import { IconComponent } from './index';
 
 export default {
   title: 'Icon',
-  component: Icon,
+  component: IconComponent,
 };
 
-const Template: Story = (args) => <Icon {...args} />;
+const Template: Story = (args) => <IconComponent {...args} />;
 
 export const story = Template.bind({});

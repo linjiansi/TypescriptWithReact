@@ -1,10 +1,10 @@
 import React from 'react';
-import BookScreen, { BookMode } from './index';
+import { BookScreenComponent, BookMode } from './index';
 import { withKnobs, select } from '@storybook/addon-knobs';
 
 export default {
   title: 'BookScreen',
-  component: BookScreen,
+  component: BookScreenComponent,
   decorators: [withKnobs],
 };
 
@@ -18,5 +18,5 @@ export function Story() {
 
   const bookMode = select(label, option, defaultValue) as BookMode;
 
-  return <BookScreen bookMode={bookMode}></BookScreen>;
+  return <BookScreenComponent bookMode={bookMode}></BookScreenComponent>;
 }
