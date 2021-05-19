@@ -55,6 +55,7 @@ const returnRouterPath = (headerType: HeaderType) => {
 export default function Header(props: Props) {
   const { headerType } = props;
   const classes = useStyles();
+
   return (
     <div className={classes.root}>
       <ThemeProvider theme={theme}>

@@ -10,6 +10,7 @@ export type BookMode = 'edit' | 'add';
 
 export default function BookScreen(props: Props) {
   const { bookMode } = props;
+
   return (
     <>
       <Header headerType={bookMode == 'edit' ? 'editBook' : 'addBook'}></Header>

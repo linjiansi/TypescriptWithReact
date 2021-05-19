@@ -11,5 +11,6 @@ export default {
 export function story() {
   const bookName = text('name', 'Book');
   const bookPrice = number('price', 1080);
+
   return <Book bookName={bookName} bookPrice={bookPrice}></Book>;
 }
