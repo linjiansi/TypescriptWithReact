@@ -1,5 +1,3 @@
-export const primaryColor = (): string => '#6302ee';
-
-export const secondaryColor = (): string => '#3adac5';
-
-export const whiteColor = (): string => '#ffffff';
+export const PRIMARY_COLOR = '#6302ee';
+export const SECONDARY_COLOR = '#3adac5';
+export const WHITE_COLOR = '#ffffff';
