@@ -4,7 +4,7 @@ import { PRIMARY_COLOR, SECONDARY_COLOR } from "../../../utils/color";
 export const useStyles = makeStyles(() =>
   createStyles({
     auth: {
-      width: '30ch',
+      width: 300,
     },
     main: {
       width: 100,
