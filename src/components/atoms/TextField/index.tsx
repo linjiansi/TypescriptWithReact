@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import VisilityIcon from '@material-ui/icons/Visibility';
 import VisilityIconOff from '@material-ui/icons/VisibilityOff';
 import FormControll from '@material-ui/core/FormControl';
@@ -109,7 +109,7 @@ const checktextFieldType = (textFieldType: TextFieldType) => {
 export default function TextField(props: Props) {
   const classes = useStyles();
   const { textFieldType } = props;
-  const [values, setValues] = React.useState<State>({
+  const [values, setValues] = useState<State>({
     email: '',
     password: '',
     confirmPassword: '',
