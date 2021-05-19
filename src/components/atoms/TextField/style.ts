@@ -16,7 +16,6 @@ export const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-
 export const TextFieldContainer = styled.div`
   align-items: center;
 `;
