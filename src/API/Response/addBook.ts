@@ -1,4 +1,4 @@
-import { ResponseModel } from '../Common/responseModel'
+import { ResponseModel } from '../common/responseModel';
 
 export interface AddBookModel extends ResponseModel {
     status: number,

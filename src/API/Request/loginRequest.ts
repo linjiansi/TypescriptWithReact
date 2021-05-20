@@ -1,4 +1,4 @@
-import { Request, configureApiClient, Body } from '../Common/apiClient';
+import { Request, configureApiClient, Body } from '../common/apiClient';
 
 interface LoginBody extends Body {
   email: string,

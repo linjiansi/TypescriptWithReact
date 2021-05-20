@@ -1,5 +1,5 @@
 import { KyHeadersInit } from 'ky/distribution/types/options';
-import { Request, configureApiClient } from '../Common/apiClient';
+import { Request, configureApiClient } from '../common/apiClient';
 
 const PATH = '/logout';
 const HTTP_METHOD = 'delete';

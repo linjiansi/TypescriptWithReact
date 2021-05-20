@@ -1,5 +1,5 @@
 import { KyHeadersInit } from 'ky/distribution/types/options';
-import { Request, configureApiClient, Body } from '../Common/apiClient';
+import { Request, configureApiClient, Body } from '../common/apiClient';
 
 interface EditBookBody extends Body {
   name: string,

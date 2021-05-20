@@ -1,6 +1,6 @@
 import ky from 'ky';
 import { KyHeadersInit } from 'ky/distribution/types/options';
-import { ResponseModel } from '../Common/responseModel';
+import { ResponseModel } from './responseModel';
 
 type HttpMethod = 'get' |
                   'post' |
