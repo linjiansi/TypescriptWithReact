@@ -8,7 +8,7 @@ interface LoginBody extends Body {
 const PATH = '/login';
 const HTTP_METHOD = 'post';
 
-export const addBook = (body: LoginBody) => {
+export const login = (body: LoginBody) => {
   const request: Request = {
     path: PATH,
     httpMethod: HTTP_METHOD,
