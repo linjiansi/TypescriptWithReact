@@ -8,7 +8,7 @@ interface AddBookBody extends Body {
   image?: string,
 }
 
-const PATH = '/add';
+const PATH = '/books';
 const HTTP_METHOD = 'post';
 const TOKEN = localStorage.getItem('token');
 const HEADER: KyHeadersInit = { token: `${TOKEN}` }
