@@ -13,7 +13,7 @@ const HTTP_METHOD = 'post';
 const TOKEN = localStorage.getItem('token');
 const HEADER: KyHeadersInit = { token: `${TOKEN}` }
 
-const addBook = (body: AddBookBody) => {
+export const addBook = (body: AddBookBody) => {
   const request: Request = {
     path: PATH,
     httpMethod: HTTP_METHOD,
