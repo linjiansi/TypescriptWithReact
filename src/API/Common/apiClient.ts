@@ -1,19 +1,18 @@
 import ky from 'ky';
+import { KyHeadersInit } from 'ky/distribution/types/options';
 import { ResponseModel } from '../Common/responseModel';
 
 type HttpMethod = 'get' |
                   'post' |
                   'put' |
                   'delete';
-interface Body {}
-
-interface Headers {}
+export interface Body {}
 
 export type Request = {
     path: string,
     httpMethod: HttpMethod,
     body?: Body,
-    headers?: Headers & HeadersInit,
+    headers?: KyHeadersInit,
 };
 
 export const configureKy = ky.create({
@@ -25,13 +24,13 @@ export const configureKy = ky.create({
     },
 });
 
-export const congigureApiClient = (request: Request) => {
+export const configureApiClient = (request: Request) => {
     const extendedKy = configureKy.extend({
         method: request.httpMethod,
         json: request.body,
         headers: request.headers,
-
     })
+
     switch (request.httpMethod) {
         case 'get':
             return sendGet(extendedKy, request.path);
@@ -62,4 +61,4 @@ const sendPut = (ky: typeof configureKy, path: string) => {
 const sendDelete = (ky: typeof configureKy, path: string) => {
     const response = ky.delete(path).json()
     return response
-}; console.log()
+};
