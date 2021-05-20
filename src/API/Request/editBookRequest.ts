@@ -10,7 +10,7 @@ interface EditBookBody extends Body {
 
 const HTTP_METHOD = 'put';
 const TOKEN = localStorage.getItem('token');
-const HEADER: KyHeadersInit = { token: `${TOKEN}` }
+const HEADER: KyHeadersInit = { token: `${TOKEN}` };
 
 export const editBook = (body: EditBookBody, id: number) => {
   const PATH = `books/${id}`;

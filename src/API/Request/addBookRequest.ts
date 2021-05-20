@@ -11,7 +11,7 @@ interface AddBookBody extends Body {
 const PATH = '/books';
 const HTTP_METHOD = 'post';
 const TOKEN = localStorage.getItem('token');
-const HEADER: KyHeadersInit = { token: `${TOKEN}` }
+const HEADER: KyHeadersInit = { token: `${TOKEN}` };
 
 export const addBook = (body: AddBookBody) => {
   const request: Request = {
