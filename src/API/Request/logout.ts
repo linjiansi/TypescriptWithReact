@@ -1,5 +1,6 @@
 import { KyHeadersInit } from 'ky/distribution/types/options';
 import { Request, configureApiClient } from '../common/apiClient';
+import { isLoginModel } from '../response/login';
 
 const PATH = '/logout';
 const HTTP_METHOD = 'delete';
@@ -13,5 +14,11 @@ export const logout = () => {
     headers: HEADER,
   };
 
-  return configureApiClient(request);
-}
+  const response = configureApiClient(request);
+
+  if (isLoginModel(response)) {
+    throw Error('Response Error');
+  }
+
+  return response;
+};
