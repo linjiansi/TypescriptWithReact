@@ -1,4 +1,5 @@
 import { Request, configureApiClient, Body } from '../common/apiClient';
+import { isLoginModel } from '../response/login';
 
 interface LoginBody extends Body {
   email: string,
@@ -15,5 +16,10 @@ export const login = (body: LoginBody) => {
     body: body,
   };
 
-  return configureApiClient(request);
+  const response = configureApiClient(request);
+  if (isLoginModel(response)) {
+    throw Error('Response Error');
+  }
+
+  return response;
 }
