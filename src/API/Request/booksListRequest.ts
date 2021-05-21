@@ -1,5 +1,6 @@
 import { KyHeadersInit } from 'ky/distribution/types/options';
 import { Request, configureApiClient, Body } from '../common/apiClient';
+import { BooksListModel, isBooksList } from '../response/booksList';
 
 interface BooksListBody extends Body {
   limit?: number,
@@ -15,7 +16,7 @@ const DEFAULT_BOOKSLIST_BODY: BooksListBody = {
   page: 1,
 };
 
-export const getBooksList = (body: BooksListBody = DEFAULT_BOOKSLIST_BODY) => {
+export const getBooksList = (body: BooksListBody = DEFAULT_BOOKSLIST_BODY): BooksListModel => {
   const request: Request = {
     path: PATH,
     httpMethod: HTTP_METHOD,
@@ -23,5 +24,10 @@ export const getBooksList = (body: BooksListBody = DEFAULT_BOOKSLIST_BODY) => {
     headers: HEADER,
   };
 
-  return configureApiClient(request);
-}
+  const response = configureApiClient(request);
+  if (!isBooksList(response)) {
+    throw Error('Response error');
+  }
+
+  return response;
+};
