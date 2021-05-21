@@ -10,3 +10,21 @@ type SignUpResult = {
     email: string,
     token: string,
 };
+
+export const isSignUpModel = (arg: unknown): arg is SignUpModel => {
+    const model = arg as SignUpModel;
+    const result = model.result;
+
+    return (
+        typeof model.status === 'number' &&
+        isResult(result)
+    );
+};
+
+const isResult = (arg: SignUpResult) => {
+    return (
+        typeof arg.id === 'number' &&
+        typeof arg.email === 'string' &&
+        typeof arg.token === 'string'
+    );
+};
