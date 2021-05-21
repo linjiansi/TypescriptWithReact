@@ -13,7 +13,7 @@ type EditBookResult = {
     purchase_date?: string,
 };
 
-export const isEditBook = (arg: unknown): arg is EditBookModel => {
+export const isEditBookModel = (arg: unknown): arg is EditBookModel => {
     const model = arg as EditBookModel;
     const result = model.result;
 

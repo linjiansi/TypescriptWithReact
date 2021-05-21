@@ -1,12 +1,12 @@
 import { ResponseModel } from '../common/responseModel';
 
-export interface Error extends ResponseModel {
+export interface ErrorModel extends ResponseModel {
     status: number,
     massage: string[]
 }
 
-export const isError = (arg: unknown): arg is Error => {
-    const model = arg as Error;
+export const isErrorModel = (arg: unknown): arg is ErrorModel => {
+    const model = arg as ErrorModel;
 
     return (
         typeof model.status === 'number' &&

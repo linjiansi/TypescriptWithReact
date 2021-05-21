@@ -17,7 +17,7 @@ type BookListResult = {
     purchase_date?: string,
 };
 
-export const isBooksList = (arg: unknown): arg is BooksListModel => {
+export const isBooksListModel = (arg: unknown): arg is BooksListModel => {
     const model = arg as BooksListModel;
     const result = model.result;
 

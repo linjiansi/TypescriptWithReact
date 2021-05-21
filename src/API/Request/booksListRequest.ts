@@ -1,6 +1,6 @@
 import { KyHeadersInit } from 'ky/distribution/types/options';
 import { Request, configureApiClient, Body } from '../common/apiClient';
-import { BooksListModel, isBooksList } from '../response/booksList';
+import { BooksListModel, isBooksListModel } from '../response/booksList';
 
 interface BooksListBody extends Body {
   limit?: number,
@@ -26,7 +26,7 @@ export const getBooksList = (body: BooksListBody = DEFAULT_BOOKSLIST_BODY): Book
 
   const response = configureApiClient(request);
 
-  if (!isBooksList(response)) {
+  if (!isBooksListModel(response)) {
     throw Error('Response error');
   }
 
