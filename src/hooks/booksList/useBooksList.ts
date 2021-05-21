@@ -14,7 +14,7 @@ export const useGetBooksList = (page: number, limit: number): ReturnValue => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    let isUnmounted = true;
+    let isUnmounted = false;
     const { gotBooksList } = booksListSlice.actions;
     const body = {
       page: page,
@@ -25,7 +25,7 @@ export const useGetBooksList = (page: number, limit: number): ReturnValue => {
       try {
         const booksList = await getBooksList(body);
 
-        if (isUnmounted) {
+        if (!isUnmounted) {
           dispatch(gotBooksList({ booksList }));
         }
       } catch (error) {
@@ -39,7 +39,7 @@ export const useGetBooksList = (page: number, limit: number): ReturnValue => {
     void load();
 
     return () => {
-      isUnmounted = false;
+      isUnmounted = true;
     };
   },[page, limit, dispatch]);
 
