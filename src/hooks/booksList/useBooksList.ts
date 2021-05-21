@@ -9,7 +9,7 @@ type ReturnValue = {
   bookList?: BooksListModel;
 };
 
-const useGetBooksList = (page: number, limit: number): ReturnValue => {
+export const useGetBooksList = (page: number, limit: number): ReturnValue => {
   const booksList = useSelector<BooksListState, BooksListModel | undefined>((state) => state.booksList);
   const dispatch = useDispatch();
 
