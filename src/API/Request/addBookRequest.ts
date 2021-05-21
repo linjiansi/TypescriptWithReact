@@ -1,5 +1,6 @@
 import { KyHeadersInit } from 'ky/distribution/types/options';
 import { Request, configureApiClient, Body } from '../common/apiClient';
+import { AddBookModel, isAddBook } from '../response/addBook';
 
 interface AddBookBody extends Body {
   name: string,
@@ -13,7 +14,7 @@ const HTTP_METHOD = 'post';
 const TOKEN = localStorage.getItem('token');
 const HEADER: KyHeadersInit = { token: `${TOKEN}` };
 
-export const addBook = (body: AddBookBody) => {
+export const addBook = (body: AddBookBody): AddBookModel => {
   const request: Request = {
     path: PATH,
     httpMethod: HTTP_METHOD,
@@ -21,5 +22,10 @@ export const addBook = (body: AddBookBody) => {
     headers: HEADER,
   };
 
-  return configureApiClient(request);
+  const response = configureApiClient(request);
+  if (!isAddBook(response)) {
+    throw Error('Response Error');
+  }
+
+  return response;
 }
