@@ -25,6 +25,7 @@ export const getBooksList = (body: BooksListBody = DEFAULT_BOOKSLIST_BODY): Book
   };
 
   const response = configureApiClient(request);
+
   if (!isBooksList(response)) {
     throw Error('Response error');
   }

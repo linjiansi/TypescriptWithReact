@@ -28,7 +28,7 @@ export const isBooksList = (arg: unknown): arg is BooksListModel => {
         typeof model.limit === 'number' &&
         isResult(result)
     )
-}
+};
 
 const isResult = (arg: BookListResult[]) => {
     return arg.some((arg) =>

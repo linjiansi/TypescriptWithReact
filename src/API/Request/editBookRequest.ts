@@ -23,6 +23,7 @@ export const editBook = (body: EditBookBody, id: number): EditBookModel => {
   };
 
   const response = configureApiClient(request);
+
   if (!isEditBook(response)) {
     throw Error('Response error');
   }

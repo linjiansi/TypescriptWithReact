@@ -23,9 +23,10 @@ export const addBook = (body: AddBookBody): AddBookModel => {
   };
 
   const response = configureApiClient(request);
+
   if (!isAddBook(response)) {
     throw Error('Response Error');
   }
 
   return response;
-}
+};

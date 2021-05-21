@@ -17,9 +17,10 @@ export const login = (body: LoginBody) => {
   };
 
   const response = configureApiClient(request);
+
   if (isLoginModel(response)) {
     throw Error('Response Error');
   }
 
   return response;
-}
+};

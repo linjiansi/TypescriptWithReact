@@ -17,6 +17,7 @@ export const signUp = (body: SignUpBody) => {
   };
 
   const response = configureApiClient(request);
+
   if (isSignUpModel(response)) {
     throw Error('Response Error');
   }
