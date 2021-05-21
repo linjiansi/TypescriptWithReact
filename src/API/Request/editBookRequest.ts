@@ -3,7 +3,7 @@ import { Request, configureApiClient, Body } from '../common/apiClient';
 import { EditBookModel, isEditBookModel } from '../response/editBook';
 import { isErrorModel } from '../response/error';
 
-interface EditBookBody extends Body {
+export interface EditBookBody extends Body {
   name: string,
   price?: number,
   purchaseDate?: string,

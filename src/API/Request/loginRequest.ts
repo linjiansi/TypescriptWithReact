@@ -2,7 +2,7 @@ import { Request, configureApiClient, Body } from '../common/apiClient';
 import { isErrorModel } from '../response/error';
 import { isLoginModel, LoginModel } from '../response/login';
 
-interface LoginBody extends Body {
+export interface LoginBody extends Body {
   email: string,
   password: string,
 }
