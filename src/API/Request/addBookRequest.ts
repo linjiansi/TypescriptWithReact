@@ -1,6 +1,7 @@
 import { KyHeadersInit } from 'ky/distribution/types/options';
 import { Request, configureApiClient, Body } from '../common/apiClient';
 import { AddBookModel, isAddBookModel } from '../response/addBook';
+import { isErrorModel } from '../response/error';
 
 interface AddBookBody extends Body {
   name: string,
@@ -24,8 +25,12 @@ export const addBook = (body: AddBookBody): AddBookModel => {
 
   const response = configureApiClient(request);
 
+  if (isErrorModel(response)) {
+    throw response;
+  }
+
   if (!isAddBookModel(response)) {
-    throw Error('Response Error');
+    throw Error("Response Error");
   }
 
   return response;

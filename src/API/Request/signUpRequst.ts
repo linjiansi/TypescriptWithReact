@@ -1,4 +1,5 @@
 import { Request, configureApiClient, Body } from '../common/apiClient';
+import { isErrorModel } from '../response/error';
 import { isSignUpModel } from '../response/signUp';
 
 interface SignUpBody extends Body {
@@ -17,6 +18,10 @@ export const signUp = (body: SignUpBody) => {
   };
 
   const response = configureApiClient(request);
+
+  if (isErrorModel(response)) {
+    throw response;
+  }
 
   if (!isSignUpModel(response)) {
     throw Error('Response Error');
