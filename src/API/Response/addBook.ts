@@ -1,4 +1,3 @@
-import { type } from 'os';
 import { ResponseModel } from '../common/responseModel';
 
 export interface AddBookModel extends ResponseModel {

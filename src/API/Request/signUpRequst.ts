@@ -1,6 +1,6 @@
 import { Request, configureApiClient, Body } from '../common/apiClient';
 import { isErrorModel } from '../response/error';
-import { isSignUpModel } from '../response/signUp';
+import { isSignUpModel, SignUpModel } from '../response/signUp';
 
 interface SignUpBody extends Body {
   email: string,
@@ -10,7 +10,7 @@ interface SignUpBody extends Body {
 const PATH = '/sign_up';
 const HTTP_METHOD = 'post';
 
-export const signUp = (body: SignUpBody) => {
+export const signUp = (body: SignUpBody): SignUpModel => {
   const request: Request = {
     path: PATH,
     httpMethod: HTTP_METHOD,

@@ -1,6 +1,6 @@
 import { Request, configureApiClient, Body } from '../common/apiClient';
 import { isErrorModel } from '../response/error';
-import { isLoginModel } from '../response/login';
+import { isLoginModel, LoginModel } from '../response/login';
 
 interface LoginBody extends Body {
   email: string,
@@ -10,7 +10,7 @@ interface LoginBody extends Body {
 const PATH = '/login';
 const HTTP_METHOD = 'post';
 
-export const login = (body: LoginBody) => {
+export const login = (body: LoginBody): LoginModel => {
   const request: Request = {
     path: PATH,
     httpMethod: HTTP_METHOD,
