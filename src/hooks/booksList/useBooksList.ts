@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { BooksListModel } from "../../api/response/booksList";
 import { booksListSlice, BooksListState } from '../../features/booksList/booksList';
 import { getBooksList } from '../../api/request/booksListRequest';
+import { isErrorModel } from '../../api/response/error';
 
 type ReturnValue = {
   bookList?: BooksListModel;
@@ -28,6 +29,9 @@ const useGetBooksList = (page: number, limit: number): ReturnValue => {
           dispatch(gotBooksList({ booksList }));
         }
       } catch (error) {
+        if (isErrorModel(error)) {
+          alert(error.massage);
+        }
         alert(error);
       }
     };
