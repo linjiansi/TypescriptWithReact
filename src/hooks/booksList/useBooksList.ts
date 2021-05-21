@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { BooksListModel } from "../../api/response/booksList";
 import { booksListSlice, BooksListState } from '../../features/booksList/booksList';
-import { getBooksList } from '../../api/request/booksListRequest';
+import { BooksListBody, getBooksList } from '../../api/request/booksListRequest';
 import { isErrorModel } from '../../api/response/error';
 
 type ReturnValue = {
@@ -16,7 +16,7 @@ export const useGetBooksList = (page: number, limit: number): ReturnValue => {
   useEffect(() => {
     let isUnmounted = false;
     const { gotBooksList } = booksListSlice.actions;
-    const body = {
+    const body: BooksListBody = {
       page: page,
       limit: limit,
     };

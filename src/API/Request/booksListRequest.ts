@@ -3,7 +3,7 @@ import { Request, configureApiClient, Body } from '../common/apiClient';
 import { BooksListModel, isBooksListModel } from '../response/booksList';
 import { isErrorModel } from '../response/error';
 
-interface BooksListBody extends Body {
+export interface BooksListBody extends Body {
   limit?: number,
   page?: number,
 }
