@@ -1,11 +1,11 @@
 import React from 'react';
-import { SignUpRouter } from './signUpRouter';
+import { SignUp } from './index';
 
 export default {
   title: 'SignUp',
-  component: SignUpRouter,
+  component: SignUp,
 };
 
 export function story() {
-  return <SignUpRouter></SignUpRouter>;
+  return <SignUp></SignUp>;
 }

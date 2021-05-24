@@ -2,9 +2,9 @@ import React from 'react';
 import { HeaderComponent } from '../../molecules/Header/index';
 import { BookScreenComponent } from '../../organisms/BookScreen/index';
 import Paper from '@material-ui/core/Paper';
-import { PaperContainer, useStyles } from '../AddBook/style';
+import { PaperContainer, useStyles } from './style';
 
-export function EditBookRouter() {
+export function AddBook() {
   const classes = useStyles();
 
   return (
@@ -12,7 +12,7 @@ export function EditBookRouter() {
       <HeaderComponent headerType={'main'}></HeaderComponent>
       <PaperContainer>
         <Paper elevation={8} className={classes.paper}>
-          <BookScreenComponent bookMode="edit"></BookScreenComponent>
+          <BookScreenComponent bookMode="add"></BookScreenComponent>
         </Paper>
       </PaperContainer>
     </>
