@@ -1,11 +1,11 @@
 import React from 'react';
-import { AddBookRouter } from './addBookRouter';
+import { AddBook } from './index';
 
 export default {
   title: 'AddBook',
-  component: AddBookRouter,
+  component: AddBook,
 };
 
 export function story() {
-  return <AddBookRouter></AddBookRouter>;
+  return <AddBook></AddBook>;
 }
