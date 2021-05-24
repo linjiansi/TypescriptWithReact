@@ -7,7 +7,7 @@ import { EditBook } from './components/pages/EditBook';
 import { Login } from './components/pages/Login';
 import { SignUp } from './components/pages/SignUp';
 
-function App() {
+function AppRouter() {
   return (
     <Switch>
       <Route exact path="/" component={Home} />
@@ -19,4 +19,4 @@ function App() {
   );
 }
 
-export default App;
+export default AppRouter;
