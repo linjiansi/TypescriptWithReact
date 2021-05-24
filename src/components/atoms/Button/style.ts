@@ -1,7 +1,7 @@
-import { createMuiTheme, createStyles, makeStyles } from "@material-ui/core";
+import { createMuiTheme, createStyles, makeStyles, Theme } from "@material-ui/core";
 import { PRIMARY_COLOR, SECONDARY_COLOR } from "../../../utils/color";
 
-export const useStyles = makeStyles(() =>
+export const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     auth: {
       width: 300,
