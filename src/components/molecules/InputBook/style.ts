@@ -7,8 +7,8 @@ export const TextFieldContainer = styled.div`
 `;
 
 export const Img = styled.img`
-  width: 16rem;
-  height: 16rem;
+  width: 240px;
+  height: 240px;
 `;
 
 export const InputBookContainer = styled.div`
