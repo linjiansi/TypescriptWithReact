@@ -1,5 +1,6 @@
-import { createMuiTheme, createStyles, makeStyles } from "@material-ui/core";
+import { createStyles, makeStyles } from "@material-ui/core";
 import { PRIMARY_COLOR, WHITE_COLOR } from "../../../utils/color";
+import { generatePaletteColor } from "../../../utils/generateColor";
 
 export const useStyles = makeStyles(() =>
   createStyles({
@@ -15,13 +16,4 @@ export const useStyles = makeStyles(() =>
   })
 );
 
-export const theme = createMuiTheme({
-  palette: {
-    primary: {
-      main: PRIMARY_COLOR,
-    },
-    secondary: {
-      main: WHITE_COLOR,
-    },
-  },
-});
+export const theme = generatePaletteColor(PRIMARY_COLOR, WHITE_COLOR);
