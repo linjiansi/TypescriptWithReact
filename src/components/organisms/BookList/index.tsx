@@ -3,7 +3,7 @@ import Grid from '@material-ui/core/Grid';
 import { HeaderComponent } from '../../molecules/Header/index';
 import { BookCardComponent } from '../../molecules/BookCard/index';
 
-//UIでのみ使用
+// TODO UIでのみ使用
 const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 export function BookListComponent() {
