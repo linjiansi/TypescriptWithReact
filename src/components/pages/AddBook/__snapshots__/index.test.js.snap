@@ -1,0 +1,301 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly at AddBook 1`] = `
+Array [
+  <div
+    className="makeStyles-root-2"
+  >
+    <header
+      className="MuiPaper-root MuiAppBar-root MuiAppBar-positionStatic MuiAppBar-colorPrimary makeStyles-header-4 MuiPaper-elevation4"
+    >
+      <div
+        className="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters"
+      >
+        <h6
+          className="MuiTypography-root makeStyles-title-3 MuiTypography-h6"
+        >
+          BookManager
+        </h6>
+        <a
+          href="/login"
+          onClick={[Function]}
+        >
+          <div
+            className="makeStyles-main-6"
+          >
+            <button
+              className="MuiButtonBase-root-35 MuiButton-root-8 MuiButton-contained-16 makeStyles-button-7 MuiButton-containedSecondary-18"
+              disabled={false}
+              onBlur={[Function]}
+              onDragLeave={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              onKeyUp={[Function]}
+              onMouseDown={[Function]}
+              onMouseLeave={[Function]}
+              onMouseUp={[Function]}
+              onTouchEnd={[Function]}
+              onTouchMove={[Function]}
+              onTouchStart={[Function]}
+              tabIndex={0}
+              type="button"
+            >
+              <span
+                className="MuiButton-label-9"
+              >
+                LOGOUT
+              </span>
+            </button>
+          </div>
+        </a>
+      </div>
+    </header>
+  </div>,
+  <div
+    className="sc-eCApnc eYBdcb"
+  >
+    <div
+      className="MuiPaper-root makeStyles-paper-1 MuiPaper-elevation8 MuiPaper-rounded"
+    >
+      <div
+        className="makeStyles-root-2"
+      >
+        <header
+          className="MuiPaper-root MuiAppBar-root MuiAppBar-positionStatic MuiAppBar-colorSecondary makeStyles-header-4 MuiPaper-elevation4"
+        >
+          <div
+            className="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters"
+          >
+            <h6
+              className="MuiTypography-root makeStyles-title-3 MuiTypography-h6"
+            >
+              書籍追加
+            </h6>
+            <a
+              href="/"
+              onClick={[Function]}
+            >
+              <div
+                className="makeStyles-main-6"
+              >
+                <button
+                  className="MuiButtonBase-root-63 MuiButton-root-36 MuiButton-contained-44 makeStyles-button-7 MuiButton-containedSecondary-46"
+                  disabled={false}
+                  onBlur={[Function]}
+                  onDragLeave={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
+                  onKeyUp={[Function]}
+                  onMouseDown={[Function]}
+                  onMouseLeave={[Function]}
+                  onMouseUp={[Function]}
+                  onTouchEnd={[Function]}
+                  onTouchMove={[Function]}
+                  onTouchStart={[Function]}
+                  tabIndex={0}
+                  type="button"
+                >
+                  <span
+                    className="MuiButton-label-37"
+                  >
+                    CREATE
+                  </span>
+                </button>
+              </div>
+            </a>
+          </div>
+        </header>
+      </div>
+      <div
+        className="sc-hKFxyN hOMxoy"
+      >
+        <img
+          className="sc-dlnjwi jyrJZZ"
+          src="https://source.unsplash.com/random"
+        />
+        <div
+          className="sc-gtsrHT dIOfnB"
+        >
+          <div
+            className="sc-bdnxRM fCAmNr"
+          >
+            <div
+              className="MuiFormControl-root makeStyles-margin-65 makeStyles-textField-66"
+            >
+              <label
+                className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+                data-shrink={false}
+                htmlFor="outlined"
+              >
+                書籍名
+              </label>
+              <div
+                className="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl"
+                onClick={[Function]}
+              >
+                <input
+                  aria-invalid={false}
+                  className="MuiInputBase-input MuiOutlinedInput-input"
+                  disabled={false}
+                  id="outlined"
+                  onAnimationStart={[Function]}
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onFocus={[Function]}
+                  required={false}
+                  type="text"
+                  value=""
+                />
+                <fieldset
+                  aria-hidden={true}
+                  className="PrivateNotchedOutline-root-67 MuiOutlinedInput-notchedOutline"
+                  style={
+                    Object {
+                      "paddingLeft": 8,
+                    }
+                  }
+                >
+                  <legend
+                    className="PrivateNotchedOutline-legend-68"
+                    style={
+                      Object {
+                        "width": 0.01,
+                      }
+                    }
+                  >
+                    <span
+                      dangerouslySetInnerHTML={
+                        Object {
+                          "__html": "&#8203;",
+                        }
+                      }
+                    />
+                  </legend>
+                </fieldset>
+              </div>
+            </div>
+          </div>
+          <div
+            className="sc-bdnxRM fCAmNr"
+          >
+            <div
+              className="MuiFormControl-root makeStyles-margin-65 makeStyles-textField-66"
+            >
+              <label
+                className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled"
+                data-shrink={true}
+                htmlFor="outlined"
+              >
+                値段
+              </label>
+              <div
+                className="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl"
+                onClick={[Function]}
+              >
+                <input
+                  aria-invalid={false}
+                  className="MuiInputBase-input MuiOutlinedInput-input"
+                  disabled={false}
+                  id="outlined"
+                  onAnimationStart={[Function]}
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onFocus={[Function]}
+                  required={false}
+                  type="text"
+                  value={0}
+                />
+                <fieldset
+                  aria-hidden={true}
+                  className="PrivateNotchedOutline-root-67 MuiOutlinedInput-notchedOutline"
+                  style={
+                    Object {
+                      "paddingLeft": 8,
+                    }
+                  }
+                >
+                  <legend
+                    className="PrivateNotchedOutline-legend-68"
+                    style={
+                      Object {
+                        "width": 38,
+                      }
+                    }
+                  >
+                    <span
+                      dangerouslySetInnerHTML={
+                        Object {
+                          "__html": "&#8203;",
+                        }
+                      }
+                    />
+                  </legend>
+                </fieldset>
+              </div>
+            </div>
+          </div>
+          <div
+            className="sc-bdnxRM fCAmNr"
+          >
+            <div
+              className="MuiFormControl-root makeStyles-margin-65 makeStyles-textField-66"
+            >
+              <label
+                className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+                data-shrink={false}
+                htmlFor="outlined"
+              >
+                
+              </label>
+              <div
+                className="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl"
+                onClick={[Function]}
+              >
+                <input
+                  aria-invalid={false}
+                  className="MuiInputBase-input MuiOutlinedInput-input"
+                  disabled={false}
+                  id="outlined"
+                  onAnimationStart={[Function]}
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onFocus={[Function]}
+                  required={false}
+                  type="date"
+                  value=""
+                />
+                <fieldset
+                  aria-hidden={true}
+                  className="PrivateNotchedOutline-root-67 MuiOutlinedInput-notchedOutline"
+                  style={
+                    Object {
+                      "paddingLeft": 8,
+                    }
+                  }
+                >
+                  <legend
+                    className="PrivateNotchedOutline-legend-68"
+                    style={
+                      Object {
+                        "width": 0.01,
+                      }
+                    }
+                  >
+                    <span
+                      dangerouslySetInnerHTML={
+                        Object {
+                          "__html": "&#8203;",
+                        }
+                      }
+                    />
+                  </legend>
+                </fieldset>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+]
+`;
