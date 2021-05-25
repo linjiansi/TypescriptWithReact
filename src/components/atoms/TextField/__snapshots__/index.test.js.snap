@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly at TextFiledComponent 1`] = `
+<div
+  className="sc-bdnxRM fCAmNr"
+>
+  <div
+    className="MuiFormControl-root makeStyles-margin-2 makeStyles-textField-3"
+  >
+    <label
+      className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+      data-shrink={false}
+      htmlFor="outlined"
+    />
+    <div
+      className="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl"
+      onClick={[Function]}
+    >
+      <input
+        aria-invalid={false}
+        className="MuiInputBase-input MuiOutlinedInput-input"
+        disabled={false}
+        id="outlined"
+        onAnimationStart={[Function]}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        required={false}
+        type="text"
+      />
+      <fieldset
+        aria-hidden={true}
+        className="PrivateNotchedOutline-root-4 MuiOutlinedInput-notchedOutline"
+        style={
+          Object {
+            "paddingLeft": 8,
+          }
+        }
+      >
+        <legend
+          className="PrivateNotchedOutline-legend-5"
+          style={
+            Object {
+              "width": 0.01,
+            }
+          }
+        >
+          <span
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "&#8203;",
+              }
+            }
+          />
+        </legend>
+      </fieldset>
+    </div>
+  </div>
+</div>
+`;
