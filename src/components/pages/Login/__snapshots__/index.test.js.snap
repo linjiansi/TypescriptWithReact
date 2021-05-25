@@ -1,0 +1,258 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly at Login 1`] = `
+Array [
+  <h2
+    className="sc-dlnjwi iVCkmR"
+  >
+    Book Manager
+  </h2>,
+  <div
+    className="sc-hKFxyN lfVLtz"
+  >
+    <div
+      className="MuiPaper-root MuiPaper-elevation8 MuiPaper-rounded"
+    >
+      <div
+        className="sc-gtsrHT dIOfnB"
+      >
+        <svg
+          aria-hidden={true}
+          className="MuiSvgIcon-root"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"
+          />
+        </svg>
+        <h2>
+          ログイン
+        </h2>
+        <div
+          className="sc-bdnxRM fCAmNr"
+        >
+          <div
+            className="MuiFormControl-root makeStyles-margin-2 makeStyles-textField-3"
+          >
+            <label
+              className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+              data-shrink={false}
+              htmlFor="outlined"
+            >
+              メールアドレス
+            </label>
+            <div
+              className="MuiInputBase-root MuiOutlinedInput-root Mui-error Mui-error MuiInputBase-formControl"
+              onClick={[Function]}
+            >
+              <input
+                aria-invalid={true}
+                className="MuiInputBase-input MuiOutlinedInput-input"
+                disabled={false}
+                id="outlined"
+                minlength={6}
+                onAnimationStart={[Function]}
+                onBlur={[Function]}
+                onChange={[Function]}
+                onFocus={[Function]}
+                required={false}
+                type="email"
+                value=""
+              />
+              <fieldset
+                aria-hidden={true}
+                className="PrivateNotchedOutline-root-4 MuiOutlinedInput-notchedOutline"
+                style={
+                  Object {
+                    "paddingLeft": 8,
+                  }
+                }
+              >
+                <legend
+                  className="PrivateNotchedOutline-legend-5"
+                  style={
+                    Object {
+                      "width": 0.01,
+                    }
+                  }
+                >
+                  <span
+                    dangerouslySetInnerHTML={
+                      Object {
+                        "__html": "&#8203;",
+                      }
+                    }
+                  />
+                </legend>
+              </fieldset>
+            </div>
+          </div>
+        </div>
+        <div
+          className="sc-bdnxRM fCAmNr"
+        >
+          <div
+            className="MuiFormControl-root makeStyles-margin-2 makeStyles-textField-3"
+          >
+            <label
+              className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+              data-shrink={false}
+              htmlFor="outlined"
+            >
+              パスワード
+            </label>
+            <div
+              className="MuiInputBase-root MuiOutlinedInput-root Mui-error Mui-error MuiInputBase-formControl MuiInputBase-adornedEnd MuiOutlinedInput-adornedEnd"
+              onClick={[Function]}
+            >
+              <input
+                aria-invalid={true}
+                className="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
+                disabled={false}
+                id="outlined"
+                minlength={6}
+                onAnimationStart={[Function]}
+                onBlur={[Function]}
+                onChange={[Function]}
+                onFocus={[Function]}
+                required={false}
+                type="password"
+                value=""
+              />
+              <div
+                className="MuiInputAdornment-root MuiInputAdornment-positionEnd"
+              >
+                <button
+                  aria-label="toggle password visibility"
+                  className="MuiButtonBase-root MuiIconButton-root MuiIconButton-edgeEnd"
+                  disabled={false}
+                  onBlur={[Function]}
+                  onClick={[Function]}
+                  onDragLeave={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
+                  onKeyUp={[Function]}
+                  onMouseDown={[Function]}
+                  onMouseLeave={[Function]}
+                  onMouseUp={[Function]}
+                  onTouchEnd={[Function]}
+                  onTouchMove={[Function]}
+                  onTouchStart={[Function]}
+                  tabIndex={0}
+                  type="button"
+                >
+                  <span
+                    className="MuiIconButton-label"
+                  >
+                    <svg
+                      aria-hidden={true}
+                      className="MuiSvgIcon-root"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"
+                      />
+                    </svg>
+                  </span>
+                </button>
+              </div>
+              <fieldset
+                aria-hidden={true}
+                className="PrivateNotchedOutline-root-4 MuiOutlinedInput-notchedOutline"
+                style={
+                  Object {
+                    "paddingLeft": 8,
+                  }
+                }
+              >
+                <legend
+                  className="PrivateNotchedOutline-legend-5"
+                  style={
+                    Object {
+                      "width": 0.01,
+                    }
+                  }
+                >
+                  <span
+                    dangerouslySetInnerHTML={
+                      Object {
+                        "__html": "&#8203;",
+                      }
+                    }
+                  />
+                </legend>
+              </fieldset>
+            </div>
+          </div>
+        </div>
+        <a
+          href="/"
+          onClick={[Function]}
+        >
+          <div
+            className="makeStyles-auth-8"
+          >
+            <button
+              className="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-button-10 MuiButton-containedPrimary MuiButton-fullWidth"
+              disabled={false}
+              onBlur={[Function]}
+              onDragLeave={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              onKeyUp={[Function]}
+              onMouseDown={[Function]}
+              onMouseLeave={[Function]}
+              onMouseUp={[Function]}
+              onTouchEnd={[Function]}
+              onTouchMove={[Function]}
+              onTouchStart={[Function]}
+              tabIndex={0}
+              type="button"
+            >
+              <span
+                className="MuiButton-label"
+              >
+                ログイン
+              </span>
+            </button>
+          </div>
+        </a>
+        <a
+          href="/sign-up"
+          onClick={[Function]}
+        >
+          <div
+            className="makeStyles-auth-8"
+          >
+            <button
+              className="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-button-10 MuiButton-containedPrimary MuiButton-fullWidth"
+              disabled={false}
+              onBlur={[Function]}
+              onDragLeave={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              onKeyUp={[Function]}
+              onMouseDown={[Function]}
+              onMouseLeave={[Function]}
+              onMouseUp={[Function]}
+              onTouchEnd={[Function]}
+              onTouchMove={[Function]}
+              onTouchStart={[Function]}
+              tabIndex={0}
+              type="button"
+            >
+              <span
+                className="MuiButton-label"
+              >
+                サインアップへ
+              </span>
+            </button>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>,
+]
+`;
