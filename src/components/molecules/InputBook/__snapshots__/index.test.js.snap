@@ -1,0 +1,193 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly at InputBookComponent 1`] = `
+<div
+  className="sc-hKFxyN hOMxoy"
+>
+  <img
+    className="sc-dlnjwi jyrJZZ"
+    src="https://source.unsplash.com/random"
+  />
+  <div
+    className="sc-gtsrHT dIOfnB"
+  >
+    <div
+      className="sc-bdnxRM fCAmNr"
+    >
+      <div
+        className="MuiFormControl-root makeStyles-margin-2 makeStyles-textField-3"
+      >
+        <label
+          className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+          data-shrink={false}
+          htmlFor="outlined"
+        >
+          書籍名
+        </label>
+        <div
+          className="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl"
+          onClick={[Function]}
+        >
+          <input
+            aria-invalid={false}
+            className="MuiInputBase-input MuiOutlinedInput-input"
+            disabled={false}
+            id="outlined"
+            onAnimationStart={[Function]}
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            required={false}
+            type="text"
+            value=""
+          />
+          <fieldset
+            aria-hidden={true}
+            className="PrivateNotchedOutline-root-4 MuiOutlinedInput-notchedOutline"
+            style={
+              Object {
+                "paddingLeft": 8,
+              }
+            }
+          >
+            <legend
+              className="PrivateNotchedOutline-legend-5"
+              style={
+                Object {
+                  "width": 0.01,
+                }
+              }
+            >
+              <span
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "&#8203;",
+                  }
+                }
+              />
+            </legend>
+          </fieldset>
+        </div>
+      </div>
+    </div>
+    <div
+      className="sc-bdnxRM fCAmNr"
+    >
+      <div
+        className="MuiFormControl-root makeStyles-margin-2 makeStyles-textField-3"
+      >
+        <label
+          className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled"
+          data-shrink={true}
+          htmlFor="outlined"
+        >
+          値段
+        </label>
+        <div
+          className="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl"
+          onClick={[Function]}
+        >
+          <input
+            aria-invalid={false}
+            className="MuiInputBase-input MuiOutlinedInput-input"
+            disabled={false}
+            id="outlined"
+            onAnimationStart={[Function]}
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            required={false}
+            type="text"
+            value={0}
+          />
+          <fieldset
+            aria-hidden={true}
+            className="PrivateNotchedOutline-root-4 MuiOutlinedInput-notchedOutline"
+            style={
+              Object {
+                "paddingLeft": 8,
+              }
+            }
+          >
+            <legend
+              className="PrivateNotchedOutline-legend-5"
+              style={
+                Object {
+                  "width": 38,
+                }
+              }
+            >
+              <span
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "&#8203;",
+                  }
+                }
+              />
+            </legend>
+          </fieldset>
+        </div>
+      </div>
+    </div>
+    <div
+      className="sc-bdnxRM fCAmNr"
+    >
+      <div
+        className="MuiFormControl-root makeStyles-margin-2 makeStyles-textField-3"
+      >
+        <label
+          className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+          data-shrink={false}
+          htmlFor="outlined"
+        >
+          
+        </label>
+        <div
+          className="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl"
+          onClick={[Function]}
+        >
+          <input
+            aria-invalid={false}
+            className="MuiInputBase-input MuiOutlinedInput-input"
+            disabled={false}
+            id="outlined"
+            onAnimationStart={[Function]}
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            required={false}
+            type="date"
+            value=""
+          />
+          <fieldset
+            aria-hidden={true}
+            className="PrivateNotchedOutline-root-4 MuiOutlinedInput-notchedOutline"
+            style={
+              Object {
+                "paddingLeft": 8,
+              }
+            }
+          >
+            <legend
+              className="PrivateNotchedOutline-legend-5"
+              style={
+                Object {
+                  "width": 0.01,
+                }
+              }
+            >
+              <span
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "&#8203;",
+                  }
+                }
+              />
+            </legend>
+          </fieldset>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
