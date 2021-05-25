@@ -4,7 +4,7 @@ import { ButtonComponent } from '../../atoms/Button/index';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import { Link } from 'react-router-dom';
+import { Link, MemoryRouter } from 'react-router-dom';
 import { theme, useStyles } from './style';
 
 type Props = {
@@ -68,9 +68,11 @@ export function HeaderComponent(props: Props) {
             <Typography variant="h6" className={classes.title}>
               {returnHeaderTitle(headerType)}
             </Typography>
-            <Link to={returnRouterPath(headerType)}>
-              <ButtonComponent useCase={'main'}>{returnButtonTitle(headerType)}</ButtonComponent>
-            </Link>
+            <MemoryRouter>
+              <Link to={returnRouterPath(headerType)}>
+                <ButtonComponent useCase={'main'}>{returnButtonTitle(headerType)}</ButtonComponent>
+              </Link>
+            </MemoryRouter>
           </Toolbar>
         </AppBar>
       </ThemeProvider>

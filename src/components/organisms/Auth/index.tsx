@@ -2,7 +2,7 @@ import React from 'react';
 import { TextFieldComponent } from '../../atoms/TextField/index';
 import { ButtonComponent } from '../../atoms/Button/index';
 import { IconComponent } from '../../atoms/Icon/index';
-import { Link } from 'react-router-dom';
+import { Link, MemoryRouter } from 'react-router-dom';
 import { Container } from './style';
 
 type Props = {
@@ -28,22 +28,27 @@ export function AuthComponent(props: Props) {
       case 'login':
         return (
           <>
-            {' '}
-            <Link to={'/'}>
-              <ButtonComponent useCase={'auth'}>{returnAuthType(authType)}</ButtonComponent>
-            </Link>
-            <Link to={'/sign-up'}>
-              <ButtonComponent useCase={'auth'}>{'サインアップへ'}</ButtonComponent>
-            </Link>
+            <MemoryRouter>
+              <Link to={'/'}>
+                <ButtonComponent useCase={'auth'}>{returnAuthType(authType)}</ButtonComponent>
+              </Link>
+            </MemoryRouter>
+            <MemoryRouter>
+              <Link to={'/sign-up'}>
+                <ButtonComponent useCase={'auth'}>{'サインアップへ'}</ButtonComponent>
+              </Link>
+            </MemoryRouter>
           </>
         );
       case 'signUp':
         return (
           <>
             <TextFieldComponent textFieldType="confirmPassword"></TextFieldComponent>
-            <Link to={'/'}>
-              <ButtonComponent useCase={'auth'}>{returnAuthType(authType)}</ButtonComponent>
-            </Link>
+            <MemoryRouter>
+              <Link to={'/'}>
+                <ButtonComponent useCase={'auth'}>{returnAuthType(authType)}</ButtonComponent>
+              </Link>
+            </MemoryRouter>
           </>
         );
     }
