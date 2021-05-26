@@ -9,9 +9,11 @@ import { theme, useStyles } from './style';
 
 type Props = {
   headerType: HeaderType;
+  buttonForm?: ButtonForm;
 };
 
 export type HeaderType = 'main' | 'bookList' | 'editBook' | 'addBook';
+type ButtonForm = 'edit' | 'add'
 
 const returnHeaderTitle = (headerType: HeaderType) => {
   switch (headerType) {
@@ -53,7 +55,7 @@ const returnRouterPath = (headerType: HeaderType) => {
 };
 
 export function HeaderComponent(props: Props) {
-  const { headerType } = props;
+  const { headerType, buttonForm } = props;
   const classes = useStyles();
 
   return (
@@ -70,7 +72,7 @@ export function HeaderComponent(props: Props) {
             </Typography>
             <MemoryRouter>
               <Link to={returnRouterPath(headerType)}>
-                <ButtonComponent useCase={'main'}>{returnButtonTitle(headerType)}</ButtonComponent>
+                <ButtonComponent useCase={'main'} form={buttonForm}>{returnButtonTitle(headerType)}</ButtonComponent>
               </Link>
             </MemoryRouter>
           </Toolbar>
