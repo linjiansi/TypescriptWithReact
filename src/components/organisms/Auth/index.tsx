@@ -30,7 +30,7 @@ export function AuthComponent(props: Props) {
           <>
             <MemoryRouter>
               <Link to={'/'}>
-                <ButtonComponent useCase={'auth'}>{returnAuthType(authType)}</ButtonComponent>
+                <ButtonComponent useCase={'auth'} form={authType} buttonType='submit'>{returnAuthType(authType)}</ButtonComponent>
               </Link>
             </MemoryRouter>
             <MemoryRouter>
@@ -46,7 +46,7 @@ export function AuthComponent(props: Props) {
             <TextFieldComponent textFieldType="confirmPassword"></TextFieldComponent>
             <MemoryRouter>
               <Link to={'/'}>
-                <ButtonComponent useCase={'auth'}>{returnAuthType(authType)}</ButtonComponent>
+                <ButtonComponent useCase={'auth'} form={authType} buttonType='submit'>{returnAuthType(authType)}</ButtonComponent>
               </Link>
             </MemoryRouter>
           </>
@@ -58,9 +58,11 @@ export function AuthComponent(props: Props) {
     <Container>
       <IconComponent></IconComponent>
       <h2>{returnAuthType(authType)}</h2>
-      <TextFieldComponent textFieldType={'email'}></TextFieldComponent>
-      <TextFieldComponent textFieldType={'password'}></TextFieldComponent>
-      {renderComponentByAuthType(authType)}
+      <form id={authType}>
+        <TextFieldComponent textFieldType={'email'}></TextFieldComponent>
+        <TextFieldComponent textFieldType={'password'}></TextFieldComponent>
+        {renderComponentByAuthType(authType)}
+      </form>
     </Container>
   );
 }
