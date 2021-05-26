@@ -12,9 +12,12 @@ export function BookScreenComponent(props: Props) {
   const { bookMode } = props;
 
   return (
-    <>
-      <HeaderComponent headerType={bookMode == 'edit' ? 'editBook' : 'addBook'}></HeaderComponent>
+    <form id={bookMode}>
+      <HeaderComponent
+        headerType={bookMode == 'edit' ? 'editBook' : 'addBook'}
+        buttonForm={bookMode}
+      ></HeaderComponent>
       <InputBookComponent></InputBookComponent>
-    </>
+    </form>
   );
 }
