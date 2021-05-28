@@ -17,29 +17,25 @@ export function BookCardComponent(props: Props) {
   const classes = useStyles();
 
   return (
-    <MemoryRouter>
-      <Link to={'/edit'}>
-        <Card className={classes.root}>
-          <CardMedia
-            className={classes.media}
-            image="https://source.unsplash.com/random"
-            title="book"
-            />
-          <CardContent>
-            <Typography variant="body2" color="textPrimary">
-              書籍名: {bookName}
-            </Typography>
-            <BookPriceAndDateContainer>
-              <Typography variant="body2" color="textSecondary">
-                金額: {bookPrice ?? 0}
-              </Typography>
-              <Typography variant="body2" color="textSecondary">
-                購入日: {purchaseDate ?? ''}
-              </Typography>
-            </BookPriceAndDateContainer>
-          </CardContent>
-        </Card>
-      </Link>
-    </MemoryRouter>
+    <Card className={classes.root}>
+      <CardMedia
+        className={classes.media}
+        image="https://source.unsplash.com/random"
+        title="book"
+        />
+      <CardContent>
+        <Typography variant="body2" color="textPrimary">
+          書籍名: {bookName}
+        </Typography>
+        <BookPriceAndDateContainer>
+          <Typography variant="body2" color="textSecondary">
+            金額: {bookPrice ?? undefined}
+          </Typography>
+          <Typography variant="body2" color="textSecondary">
+            購入日: {purchaseDate ?? ''}
+          </Typography>
+        </BookPriceAndDateContainer>
+      </CardContent>
+    </Card>
   );
 }
