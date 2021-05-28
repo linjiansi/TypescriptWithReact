@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { TextFieldComponent } from '../../atoms/TextField/index';
 import { ButtonComponent } from '../../atoms/Button/index';
 import { IconComponent } from '../../atoms/Icon/index';
@@ -22,6 +22,8 @@ const returnAuthType = (authType: AuthType) => {
 
 export function AuthComponent(props: Props) {
   const { authType } = props;
+  const [email, setEmail] = useState<string>();
+  const [password, setPassword] = useState<string>();
 
   const renderComponentByAuthType = (authType: AuthType) => {
     switch (authType) {
@@ -43,7 +45,7 @@ export function AuthComponent(props: Props) {
       case 'signUp':
         return (
           <>
-            <TextFieldComponent textFieldType="confirmPassword"></TextFieldComponent>
+            <TextFieldComponent textFieldType="confirmPassword" password={password}></TextFieldComponent>
             <MemoryRouter>
               <Link to={'/'}>
                 <ButtonComponent useCase={'auth'} form={authType} buttonType='submit'>{returnAuthType(authType)}</ButtonComponent>
@@ -59,8 +61,8 @@ export function AuthComponent(props: Props) {
       <IconComponent></IconComponent>
       <h2>{returnAuthType(authType)}</h2>
       <form id={authType}>
-        <TextFieldComponent textFieldType={'email'}></TextFieldComponent>
-        <TextFieldComponent textFieldType={'password'}></TextFieldComponent>
+        <TextFieldComponent textFieldType={'email'} setText={setEmail}></TextFieldComponent>
+        <TextFieldComponent textFieldType={'password'} setText={setPassword}></TextFieldComponent>
         {renderComponentByAuthType(authType)}
       </form>
     </Container>
