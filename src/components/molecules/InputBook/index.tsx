@@ -1,11 +1,12 @@
 import React from 'react';
+import { ImageComponent } from '../../atoms/Image';
 import { TextFieldComponent } from '../../atoms/TextField/index';
-import { Img, InputBookContainer, TextFieldContainer } from './style';
+import { InputBookContainer, TextFieldContainer } from './style';
 
 export function InputBookComponent() {
   return (
     <InputBookContainer>
-      <Img src="https://source.unsplash.com/random"></Img>
+      <ImageComponent></ImageComponent>
       <TextFieldContainer>
         <TextFieldComponent textFieldType={'bookName'}></TextFieldComponent>
         <TextFieldComponent textFieldType={'bookPrice'}></TextFieldComponent>
