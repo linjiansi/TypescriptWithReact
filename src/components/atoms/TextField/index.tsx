@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, Dispatch, SetStateAction } from 'react';
 import VisilityIcon from '@material-ui/icons/Visibility';
 import VisilityIconOff from '@material-ui/icons/VisibilityOff';
 import FormControll from '@material-ui/core/FormControl';
@@ -6,11 +6,13 @@ import InputLabel from '@material-ui/core/InputLabel';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import IconButton from '@material-ui/core/IconButton';
 import classNames from 'classnames';
-import { OutlinedInput } from '@material-ui/core';
+import { FormHelperText, OutlinedInput } from '@material-ui/core';
 import { TextFieldContainer, useStyles } from './style';
 
 type Props = {
   textFieldType: TextFieldType;
+  password?: string;
+  setText?: Dispatch<SetStateAction<string | undefined>>;
 };
 
 export type TextFieldType =
@@ -21,20 +23,10 @@ export type TextFieldType =
   | 'bookPrice'
   | 'purchaseDate';
 
-interface TextFieldState extends TextField {
-  mailValidate: boolean;
-  passwordValidate: boolean;
+interface TextFieldState {
+  textValue: string;
   showIcon: boolean;
   showPassword: boolean;
-}
-
-interface TextField {
-  email: string;
-  password: string;
-  confirmPassword: string;
-  bookName: string;
-  bookPrice: number;
-  purchaseDate: string;
 }
 
 const returnOutlinedtextFieldType = (textFieldType: TextFieldType) => {
@@ -43,28 +35,10 @@ const returnOutlinedtextFieldType = (textFieldType: TextFieldType) => {
       return 'email';
     case 'purchaseDate':
       return 'date';
+    case 'bookPrice':
+      return 'number';
     default:
       return 'text';
-  }
-};
-
-const returnOutlinedInputValue = (
-  value: TextField,
-  textFieldType: TextFieldType
-) => {
-  switch (textFieldType) {
-    case 'email':
-      return value.email;
-    case 'password':
-      return value.password;
-    case 'confirmPassword':
-      return value.confirmPassword;
-    case 'bookName':
-      return value.bookName;
-    case 'bookPrice':
-      return value.bookPrice;
-    case 'purchaseDate':
-      return value.purchaseDate;
   }
 };
 
@@ -84,6 +58,19 @@ const returnInputLabel = (textFieldType: TextFieldType) => {
       return '';
   }
 };
+
+const returnTextFieldMessage = (textFieldType: TextFieldType) => {
+  switch (textFieldType) {
+    case 'email':
+      return 'メールアドレスが正しくありません';
+    case 'password':
+      return '文字数がたりません';
+    case 'confirmPassword':
+      return 'パスワードが一致していません';
+    default:
+      return '';
+  }
+}
 
 const returnTextFieldLabelWidth = (textFieldType: TextFieldType) => {
   switch (textFieldType) {
@@ -108,16 +95,9 @@ const isPassword = (textFieldType: TextFieldType) => {
 
 export function TextFieldComponent(props: Props) {
   const classes = useStyles();
-  const { textFieldType } = props;
+  const { textFieldType, password, setText } = props;
   const [values, setValues] = useState<TextFieldState>({
-    email: '',
-    password: '',
-    confirmPassword: '',
-    bookName: '',
-    bookPrice: 0,
-    purchaseDate: '',
-    mailValidate: true,
-    passwordValidate: true,
+    textValue: "",
     showIcon: false,
     showPassword: isPassword(textFieldType),
   });
@@ -130,6 +110,11 @@ export function TextFieldComponent(props: Props) {
   const handleChange = (prop: keyof TextFieldState) => (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
+    console.log(values.textValue)
+    console.log(event.target.value);
+    if(setText) {
+      setText(event.target.value);
+    }
     setValues({ ...values, [prop]: event.target.value });
   };
 
@@ -157,16 +142,23 @@ export function TextFieldComponent(props: Props) {
   const isValid = () => {
     if (
       textFieldType == 'password' ||
-      textFieldType == 'email' ||
-      textFieldType == 'confirmPassword' ||
-      inputRef.current !== null
+      textFieldType == 'email'
     ) {
       return !inputRef.current?.validity.valid;
     }
+
+    if (
+      textFieldType == 'confirmPassword' &&
+      password !== values.textValue
+    ) {
+      return true
+    }
+
     return false;
   };
 
-  const textFieldClass = classNames(classes.margin, classes.textField);
+  const textFieldClass = classNames(classes.marginTextField, classes.textField);
+  const helperTextClass = classNames(classes.marginHelperText, classes.helperText);
 
   return (
     <TextFieldContainer>
@@ -182,8 +174,7 @@ export function TextFieldComponent(props: Props) {
               ? 'password'
               : returnOutlinedtextFieldType(textFieldType)
           }
-          value={returnOutlinedInputValue(values, textFieldType)}
-          onChange={handleChange(textFieldType)}
+          onChange={handleChange('textValue')}
           endAdornment={
             textFieldType == 'password' || textFieldType == 'confirmPassword'
               ? renderPasswordIcon()
@@ -191,9 +182,13 @@ export function TextFieldComponent(props: Props) {
           }
           labelWidth={returnTextFieldLabelWidth(textFieldType)}
           inputRef={inputRef}
-          inputProps={isValid() ? { minlength: 6 } : undefined }
+          inputProps={textFieldType == 'password' ||
+                      textFieldType == 'email' ? { minlength: 6 } : undefined }
         />
       </FormControll>
+      <FormHelperText className={helperTextClass}>
+        {isValid() ? returnTextFieldMessage(textFieldType) : undefined}
+      </FormHelperText>
     </TextFieldContainer>
   );
 }

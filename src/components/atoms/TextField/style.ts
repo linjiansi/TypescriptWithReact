@@ -1,5 +1,6 @@
 import { createStyles, makeStyles, Theme } from "@material-ui/core";
 import styled from 'styled-components';
+import { RED_COLOR } from "../../../utils/color";
 
 export const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -7,11 +8,18 @@ export const useStyles = makeStyles((theme: Theme) =>
       display: 'flex',
       flexWrap: 'wrap',
     },
-    margin: {
+    marginTextField: {
       margin: theme.spacing(1),
+    },
+    marginHelperText: {
+      marginBottom: theme.spacing(2),
+      marginLeft: theme.spacing(1),
     },
     textField: {
       width: 300,
+    },
+    helperText: {
+      color: RED_COLOR,
     },
   })
 );
