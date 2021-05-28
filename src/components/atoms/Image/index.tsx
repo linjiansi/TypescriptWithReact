@@ -1,13 +1,13 @@
 import React, { useState, Dispatch } from 'react';
 import { ImageContainer } from './style';
-import noImage from './assets/noImage.png';
+import NoImage from './assets/noImage.png';
 
 type Props = {
   setImage: Dispatch<any>;
 };
 
 export function ImageComponent() {
-  const [imagePreview, setImagePreview] = useState<any>(noImage);
+  const [imagePreview, setImagePreview] = useState<any>(NoImage);
   const [base64, setBase64] = useState<string>();
 
   const photoUpload = (event: React.ChangeEvent<HTMLInputElement>) => {

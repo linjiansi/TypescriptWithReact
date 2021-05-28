@@ -5,7 +5,7 @@ exports[`renders correctly at TextFiledComponent 1`] = `
   className="sc-bdnxRM fCAmNr"
 >
   <div
-    className="MuiFormControl-root makeStyles-margin-2 makeStyles-textField-3"
+    className="MuiFormControl-root makeStyles-marginTextField-2 makeStyles-textField-4"
   >
     <label
       className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
@@ -30,7 +30,7 @@ exports[`renders correctly at TextFiledComponent 1`] = `
       />
       <fieldset
         aria-hidden={true}
-        className="PrivateNotchedOutline-root-4 MuiOutlinedInput-notchedOutline"
+        className="PrivateNotchedOutline-root-6 MuiOutlinedInput-notchedOutline"
         style={
           Object {
             "paddingLeft": 8,
@@ -38,7 +38,7 @@ exports[`renders correctly at TextFiledComponent 1`] = `
         }
       >
         <legend
-          className="PrivateNotchedOutline-legend-5"
+          className="PrivateNotchedOutline-legend-7"
           style={
             Object {
               "width": 0.01,
@@ -56,5 +56,8 @@ exports[`renders correctly at TextFiledComponent 1`] = `
       </fieldset>
     </div>
   </div>
+  <p
+    className="MuiFormHelperText-root makeStyles-marginHelperText-3 makeStyles-helperText-5"
+  />
 </div>
 `;
