@@ -12,44 +12,56 @@ type Props = {
   buttonForm?: ButtonForm;
 };
 
-export type HeaderType = 'main' | 'bookList' | 'editBook' | 'addBook';
-type ButtonForm = 'edit' | 'add'
+const HeaderType = {
+  main: 'MAIN',
+  bookList: 'BOOK_LIST',
+  editBook: 'EDIT_BOOK',
+  addBook: 'ADD_BOOK',
+} as const;
+
+const ButtonForm = {
+  edit: 'EDIT',
+  add: 'ADD',
+} as const;
+
+export type HeaderType = typeof HeaderType[keyof typeof HeaderType];
+export type ButtonForm = typeof ButtonForm[keyof typeof ButtonForm];
 
 const returnHeaderTitle = (headerType: HeaderType) => {
   switch (headerType) {
-    case 'main':
+    case HeaderType.main:
       return 'BookManager';
-    case 'bookList':
+    case HeaderType.bookList:
       return '書籍一覧';
-    case 'addBook':
+    case HeaderType.addBook:
       return '書籍追加';
-    case 'editBook':
+    case HeaderType.editBook:
       return '書籍編集';
   }
 };
 
 const returnButtonTitle = (headerType: HeaderType) => {
   switch (headerType) {
-    case 'main':
+    case HeaderType.main:
       return 'LOGOUT';
-    case 'bookList':
+    case HeaderType.bookList:
       return 'CREATE';
-    case 'addBook':
+    case HeaderType.addBook:
       return 'CREATE';
-    case 'editBook':
+    case HeaderType.editBook:
       return 'UPDATE';
   }
 };
 
 const returnRouterPath = (headerType: HeaderType) => {
   switch (headerType) {
-    case 'main':
+    case HeaderType.main:
       return '/login';
-    case 'bookList':
+    case HeaderType.bookList:
       return '/add';
-    case 'addBook':
+    case HeaderType.addBook:
       return '/';
-    case 'editBook':
+    case HeaderType.editBook:
       return '/';
   }
 };
@@ -63,7 +75,7 @@ export function HeaderComponent(props: Props) {
       <ThemeProvider theme={theme}>
         <AppBar
           position="static"
-          color={headerType == 'main' ? 'primary' : 'secondary'}
+          color={headerType == HeaderType.main ? 'primary' : 'secondary'}
           className={classes.header}
         >
           <Toolbar>
