@@ -7,5 +7,5 @@ export default {
 };
 
 export function story() {
-  return <IconButtonComponent></IconButtonComponent>
+  return <IconButtonComponent></IconButtonComponent>;
 }

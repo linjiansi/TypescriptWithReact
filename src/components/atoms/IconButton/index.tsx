@@ -24,14 +24,16 @@ export function IconButtonComponent(props: Props) {
     event.preventDefault();
   };
 
-  <InputAdornment position="end">
-    <IconButton
-      aria-label="toggle password visibility"
-      onClick={handleClickShowPassword}
-      onMouseDown={handleMouseDownPassword}
-      edge="end"
-    >
-      {showIcon? <VisilityIcon /> : <VisilityIconOff />}
-    </IconButton>
-  </InputAdornment>
+  return (
+    <InputAdornment position="end">
+      <IconButton
+        aria-label="toggle password visibility"
+        onClick={handleClickShowPassword}
+        onMouseDown={handleMouseDownPassword}
+        edge="end"
+      >
+        {showIcon? <VisilityIcon /> : <VisilityIconOff />}
+      </IconButton>
+    </InputAdornment>
+  )
 }
