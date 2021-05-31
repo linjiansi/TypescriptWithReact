@@ -6,7 +6,12 @@ type Props = {
   bookMode: BookMode;
 };
 
-export type BookMode = 'EDIT' | 'ADD';
+const BookMode = {
+  edit: 'EDIT',
+  add: 'ADD',
+} as const;
+
+export type BookMode = typeof BookMode[keyof typeof BookMode];
 
 export function BookScreenComponent(props: Props) {
   const { bookMode } = props;
@@ -14,7 +19,7 @@ export function BookScreenComponent(props: Props) {
   return (
     <form id={bookMode}>
       <HeaderComponent
-        headerType={bookMode == 'EDIT' ? 'EDIT_BOOK' : 'ADD_BOOK'}
+        headerType={bookMode == BookMode.edit ? 'EDIT_BOOK' : 'ADD_BOOK'}
         buttonForm={bookMode}
       ></HeaderComponent>
       <InputBookComponent></InputBookComponent>
