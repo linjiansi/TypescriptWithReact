@@ -24,33 +24,62 @@ export function AuthComponent(props: Props) {
   const { authType } = props;
   const [email, setEmail] = useState<string>();
   const [password, setPassword] = useState<string>();
+  const [mailError, setMailError] = useState<boolean>(true);
+  const [passwordError, setPasswordError] = useState<boolean>(true);
+  const [confirmError, setConfirmError] = useState<boolean>(true);
+
+  const isTextFieldValid = () => {
+    return (
+    authType == 'signUp' ?
+      mailError || passwordError || confirmError :
+      mailError || passwordError
+    );
+  }
+
+  const renderDisabableButtonComponent = () => {
+    return (
+      isTextFieldValid() ?
+        <ButtonComponent useCase={'auth'}
+                         form={authType}
+                         disabled={isTextFieldValid()}
+        >{returnAuthType(authType)}</ButtonComponent> :
+        <Link to={'/'}>
+            <ButtonComponent useCase={'auth'}
+                             form={authType}
+                             buttonType='submit'
+                             disabled={isTextFieldValid()}
+            >{returnAuthType(authType)}</ButtonComponent>
+        </Link>
+    );
+  };
 
   const renderComponentByAuthType = (authType: AuthType) => {
     switch (authType) {
       case 'login':
         return (
           <>
-            <MemoryRouter>
-              <Link to={'/'}>
-                <ButtonComponent useCase={'auth'} form={authType} buttonType='submit'>{returnAuthType(authType)}</ButtonComponent>
-              </Link>
-            </MemoryRouter>
-            <MemoryRouter>
+            {/* <MemoryRouter> */}
+            {renderDisabableButtonComponent()}
+            {/* </MemoryRouter> */}
+            {/* <MemoryRouter> */}
               <Link to={'/sign-up'}>
-                <ButtonComponent useCase={'auth'}>{'サインアップへ'}</ButtonComponent>
+                <ButtonComponent useCase={'auth'}
+                                 disabled={false}
+                >{'サインアップへ'}</ButtonComponent>
               </Link>
-            </MemoryRouter>
+            {/* </MemoryRouter> */}
           </>
         );
       case 'signUp':
         return (
           <>
-            <TextFieldComponent textFieldType="confirmPassword" password={password}></TextFieldComponent>
-            <MemoryRouter>
-              <Link to={'/'}>
-                <ButtonComponent useCase={'auth'} form={authType} buttonType='submit'>{returnAuthType(authType)}</ButtonComponent>
-              </Link>
-            </MemoryRouter>
+            <TextFieldComponent textFieldType="confirmPassword"
+                                password={password}
+                                setError={setConfirmError}
+            ></TextFieldComponent>
+            {/* <MemoryRouter> */}
+            {renderDisabableButtonComponent()}
+            {/* </MemoryRouter> */}
           </>
         );
     }
@@ -61,8 +90,13 @@ export function AuthComponent(props: Props) {
       <IconComponent></IconComponent>
       <h2>{returnAuthType(authType)}</h2>
       <form id={authType}>
-        <TextFieldComponent textFieldType={'email'} setText={setEmail}></TextFieldComponent>
-        <TextFieldComponent textFieldType={'password'} setText={setPassword}></TextFieldComponent>
+        <TextFieldComponent textFieldType={'email'}
+                            setText={setEmail}
+                            setError={setMailError}></TextFieldComponent>
+        <TextFieldComponent textFieldType={'password'}
+                            setText={setPassword}
+                            setError={setPasswordError}
+        ></TextFieldComponent>
         {renderComponentByAuthType(authType)}
       </form>
     </Container>
