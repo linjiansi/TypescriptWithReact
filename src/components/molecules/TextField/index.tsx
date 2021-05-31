@@ -13,21 +13,24 @@ type Props = {
   setError?: Dispatch<SetStateAction<boolean>>;
 };
 
-export type TextFieldType =
-  | 'email'
-  | 'password'
-  | 'confirmPassword'
-  | 'bookName'
-  | 'bookPrice'
-  | 'purchaseDate';
+const TextFieldType = {
+  email: 'EMAIL',
+  password: 'PASSWORD',
+  confirmPassword: 'CONFIRM_PASSWORD',
+  bookName: 'BOOK_NAME',
+  bookPrice: 'BOOK_PRICE',
+  purchaseDate: 'PURCHASE_DATE',
+} as const;
+
+export type TextFieldType = typeof TextFieldType[keyof typeof TextFieldType];
 
 const returnOutlinedtextFieldType = (textFieldType: TextFieldType) => {
   switch (textFieldType) {
-    case 'email':
+    case TextFieldType.email:
       return 'email';
-    case 'purchaseDate':
+    case TextFieldType.purchaseDate:
       return 'date';
-    case 'bookPrice':
+    case TextFieldType.bookPrice:
       return 'number';
     default:
       return 'text';
@@ -36,28 +39,28 @@ const returnOutlinedtextFieldType = (textFieldType: TextFieldType) => {
 
 const returnInputLabel = (textFieldType: TextFieldType) => {
   switch (textFieldType) {
-    case 'email':
+    case TextFieldType.email:
       return 'メールアドレス';
-    case 'password':
+    case TextFieldType.password:
       return 'パスワード';
-    case 'confirmPassword':
+    case TextFieldType.confirmPassword:
       return 'もう一度確認';
-    case 'bookName':
+    case TextFieldType.bookName:
       return '書籍名';
-    case 'bookPrice':
+    case TextFieldType.bookPrice:
       return '値段';
-    case 'purchaseDate':
+    case TextFieldType.purchaseDate:
       return '';
   }
 };
 
 const returnTextFieldMessage = (textFieldType: TextFieldType) => {
   switch (textFieldType) {
-    case 'email':
+    case TextFieldType.email:
       return 'メールアドレスが正しくありません';
-    case 'password':
+    case TextFieldType.password:
       return '文字数がたりません';
-    case 'confirmPassword':
+    case TextFieldType.confirmPassword:
       return 'パスワードが一致していません';
     default:
       return '';
@@ -66,23 +69,23 @@ const returnTextFieldMessage = (textFieldType: TextFieldType) => {
 
 const returnTextFieldLabelWidth = (textFieldType: TextFieldType) => {
   switch (textFieldType) {
-    case 'email':
+    case TextFieldType.email:
       return 110;
-    case 'password':
+    case TextFieldType.password:
       return 80;
-    case 'confirmPassword':
+    case TextFieldType.confirmPassword:
       return 100;
-    case 'bookName':
+    case TextFieldType.bookName:
       return 50;
-    case 'bookPrice':
+    case TextFieldType.bookPrice:
       return 40;
-    case 'purchaseDate':
+    case TextFieldType.purchaseDate:
       return 0;
   }
 };
 
 const isPassword = (textFieldType: TextFieldType) => {
-  return textFieldType == 'password' || textFieldType == 'confirmPassword';
+  return textFieldType == TextFieldType.password || textFieldType == TextFieldType.confirmPassword;
 };
 
 export function TextFieldComponent(props: Props) {
@@ -98,7 +101,7 @@ export function TextFieldComponent(props: Props) {
   ) => {
     if (setError) {
       console.log(validator(event.target.value));
-      textFieldType == 'confirmPassword' ?
+      textFieldType == TextFieldType.confirmPassword ?
         setError(isConfirmTextFieldValid(event)) :
         setError(validator(event.target.value));
     }
@@ -116,17 +119,19 @@ export function TextFieldComponent(props: Props) {
 
   const validator = (target: string) => {
     if (
-      textFieldType == 'password' ||
-      textFieldType == 'email'
+      textFieldType == TextFieldType.password ||
+      textFieldType == TextFieldType.email
     ) {
       return !inputRef.current?.validity.valid || (target == '');
     }
-    return (textFieldType == 'confirmPassword' && password != target) ? true : false
+    return (
+      textFieldType == TextFieldType.confirmPassword && password != target
+    ) ? true : false
   }
 
   const isConfirmTextFieldValid = (event: React.ChangeEvent<HTMLInputElement>) => {
     return (
-      textFieldType == 'confirmPassword' &&
+      textFieldType == TextFieldType.confirmPassword &&
       password != event.target.value) ?
       true :
       false;
@@ -155,8 +160,8 @@ export function TextFieldComponent(props: Props) {
           }
           labelWidth={returnTextFieldLabelWidth(textFieldType)}
           inputRef={inputRef}
-          inputProps={textFieldType == 'password' ||
-                      textFieldType == 'email' ? { minlength: 6 } : undefined }
+          inputProps={textFieldType == TextFieldType.password ||
+                      textFieldType == TextFieldType.email ? { minlength: 6 } : undefined }
         />
       </FormControll>
       <FormHelperText className={helperTextClass}>
