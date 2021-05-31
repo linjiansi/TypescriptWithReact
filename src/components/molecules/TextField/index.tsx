@@ -100,7 +100,6 @@ export function TextFieldComponent(props: Props) {
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
     if (setError) {
-      console.log(validator(event.target.value));
       textFieldType == TextFieldType.confirmPassword ?
         setError(isConfirmTextFieldValid(event)) :
         setError(validator(event.target.value));
