@@ -9,7 +9,7 @@ type Props = {
 
 export function IconButtonComponent(props: Props) {
   const { setShowPassword } = props
-  const [showIcon, setShowIcon] = useState<boolean>(true);
+  const [showIcon, setShowIcon] = useState<boolean>(false);
 
   const handleClickShowPassword = () => {
     setShowIcon(!showIcon);
