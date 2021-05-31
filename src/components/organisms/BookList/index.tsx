@@ -10,7 +10,7 @@ const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 export function BookListComponent() {
   return (
     <>
-      <HeaderComponent headerType={'bookList'}></HeaderComponent>
+      <HeaderComponent headerType='BOOK_LIST'></HeaderComponent>
       <Grid container spacing={4}>
         {cards.map((card, index) => (
           <Grid item key={card} xs={12} sm={6} md={4}>

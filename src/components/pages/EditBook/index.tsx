@@ -9,10 +9,10 @@ export function EditBook() {
 
   return (
     <>
-      <HeaderComponent headerType={'main'}></HeaderComponent>
+      <HeaderComponent headerType='MAIN'></HeaderComponent>
       <PaperContainer>
         <Paper elevation={8} className={classes.paper}>
-          <BookScreenComponent bookMode="edit"></BookScreenComponent>
+          <BookScreenComponent bookMode="EDIT"></BookScreenComponent>
         </Paper>
       </PaperContainer>
     </>

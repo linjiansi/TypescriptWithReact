@@ -9,7 +9,7 @@ export function Home() {
 
   return (
     <>
-      <HeaderComponent headerType={'main'}></HeaderComponent>
+      <HeaderComponent headerType='MAIN'></HeaderComponent>
       <Paper elevation={8} className={classes.paper}>
         <BookListComponent></BookListComponent>
       </Paper>
