@@ -1,13 +1,10 @@
 import React, { useState, useRef, Dispatch, SetStateAction } from 'react';
-import VisilityIcon from '@material-ui/icons/Visibility';
-import VisilityIconOff from '@material-ui/icons/VisibilityOff';
 import FormControll from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
-import InputAdornment from '@material-ui/core/InputAdornment';
-import IconButton from '@material-ui/core/IconButton';
 import classNames from 'classnames';
 import { FormHelperText, OutlinedInput } from '@material-ui/core';
 import { TextFieldContainer, useStyles } from './style';
+import { IconButtonComponent } from '../../atoms/IconButton';
 
 type Props = {
   textFieldType: TextFieldType;
@@ -23,12 +20,6 @@ export type TextFieldType =
   | 'bookName'
   | 'bookPrice'
   | 'purchaseDate';
-
-interface TextFieldState {
-  textValue: string;
-  showIcon: boolean;
-  showPassword: boolean;
-}
 
 const returnOutlinedtextFieldType = (textFieldType: TextFieldType) => {
   switch (textFieldType) {
@@ -97,18 +88,12 @@ const isPassword = (textFieldType: TextFieldType) => {
 export function TextFieldComponent(props: Props) {
   const classes = useStyles();
   const { textFieldType, password, setText, setError } = props;
-  const [values, setValues] = useState<TextFieldState>({
-    textValue: "",
-    showIcon: false,
-    showPassword: isPassword(textFieldType),
-  });
+  const [textValue, setTextValue] = useState<string>('');
+  const [showPassword, setShowPassword] = useState<boolean>(isPassword(textFieldType));
+
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const handleClickShowPassword = () => {
-    setValues({ ...values, showPassword: !values.showPassword });
-  };
-
-  const handleChange = (prop: keyof TextFieldState) => (
+  const handleChange = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
     if (setError) {
@@ -120,28 +105,13 @@ export function TextFieldComponent(props: Props) {
     if(setText) {
       setText(event.target.value);
     }
-    setValues({ ...values, [prop]: event.target.value });
+    setTextValue(event.target.value);
   };
 
   const handleMouseDownPassword = (
     event: React.MouseEvent<HTMLButtonElement>
   ) => {
     event.preventDefault();
-  };
-
-  const renderPasswordIcon = () => {
-    return (
-      <InputAdornment position="end">
-        <IconButton
-          aria-label="toggle password visibility"
-          onClick={handleClickShowPassword}
-          onMouseDown={handleMouseDownPassword}
-          edge="end"
-        >
-          {values.showPassword ? <VisilityIcon /> : <VisilityIconOff />}
-        </IconButton>
-      </InputAdornment>
-    );
   };
 
   const validator = (target: string) => {
@@ -172,18 +142,16 @@ export function TextFieldComponent(props: Props) {
           {returnInputLabel(textFieldType)}
         </InputLabel>
         <OutlinedInput
-          error={validator(values.textValue)}
+          error={validator(textValue)}
           id="outlined"
           type={
-            values.showPassword
+            showPassword
               ? 'password'
               : returnOutlinedtextFieldType(textFieldType)
           }
-          onChange={handleChange('textValue')}
+          onChange={handleChange}
           endAdornment={
-            textFieldType == 'password' || textFieldType == 'confirmPassword'
-              ? renderPasswordIcon()
-              : undefined
+            isPassword(textFieldType) && <IconButtonComponent setShowPassword={setShowPassword}></IconButtonComponent>
           }
           labelWidth={returnTextFieldLabelWidth(textFieldType)}
           inputRef={inputRef}
@@ -192,7 +160,7 @@ export function TextFieldComponent(props: Props) {
         />
       </FormControll>
       <FormHelperText className={helperTextClass}>
-        {validator(values.textValue) && returnTextFieldMessage(textFieldType)}
+        {validator(textValue) && returnTextFieldMessage(textFieldType)}
       </FormHelperText>
     </TextFieldContainer>
   );
