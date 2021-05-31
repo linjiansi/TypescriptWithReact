@@ -12,7 +12,6 @@ type Props = {
   children: React.ReactNode;
 };
 
-// export type UseCase = 'auth' | 'main';
 const UseCase = {
   auth: 'AUTH',
   main: 'MAIN',
