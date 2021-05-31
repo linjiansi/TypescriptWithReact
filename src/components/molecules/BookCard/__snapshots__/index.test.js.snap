@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly at BookCardComponent 1`] = `
+<a
+  href="/edit"
+  onClick={[Function]}
+>
+  <div
+    className="MuiPaper-root MuiCard-root makeStyles-root-1 MuiPaper-elevation1 MuiPaper-rounded"
+  >
+    <div
+      className="MuiCardMedia-root makeStyles-media-2"
+      style={
+        Object {
+          "backgroundImage": "url(\\"https://source.unsplash.com/random\\")",
+        }
+      }
+      title="book"
+    />
+    <div
+      className="MuiCardContent-root"
+    >
+      <p
+        className="MuiTypography-root MuiTypography-body2 MuiTypography-colorTextPrimary"
+      >
+        書籍名: 
+        test
+      </p>
+      <div
+        className="sc-bdnxRM ctBBVd"
+      >
+        <p
+          className="MuiTypography-root MuiTypography-body2 MuiTypography-colorTextSecondary"
+        >
+          金額: 
+          1000
+        </p>
+        <p
+          className="MuiTypography-root MuiTypography-body2 MuiTypography-colorTextSecondary"
+        >
+          購入日: 
+          2021/05/25
+        </p>
+      </div>
+    </div>
+  </div>
+</a>
+`;
