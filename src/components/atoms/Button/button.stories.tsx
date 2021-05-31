@@ -19,5 +19,6 @@ export function story() {
 
   const useCase = select(label, option, defaultValue) as UseCase;
 
-  return <ButtonComponent useCase={useCase}>{buttonLabel}</ButtonComponent>;
+  return <ButtonComponent useCase={useCase}
+                          disabled={false}>{buttonLabel}</ButtonComponent>;
 }
