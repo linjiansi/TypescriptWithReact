@@ -13,6 +13,7 @@ type Props = {
   textFieldType: TextFieldType;
   password?: string;
   setText?: Dispatch<SetStateAction<string | undefined>>;
+  setError?: Dispatch<SetStateAction<boolean>>;
 };
 
 export type TextFieldType =
@@ -95,7 +96,7 @@ const isPassword = (textFieldType: TextFieldType) => {
 
 export function TextFieldComponent(props: Props) {
   const classes = useStyles();
-  const { textFieldType, password, setText } = props;
+  const { textFieldType, password, setText, setError } = props;
   const [values, setValues] = useState<TextFieldState>({
     textValue: "",
     showIcon: false,
@@ -110,8 +111,12 @@ export function TextFieldComponent(props: Props) {
   const handleChange = (prop: keyof TextFieldState) => (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
-    console.log(values.textValue)
-    console.log(event.target.value);
+    if (setError) {
+      console.log(validator(event.target.value));
+      textFieldType == 'confirmPassword' ?
+        setError(isConfirmTextFieldValid(event)) :
+        setError(validator(event.target.value));
+    }
     if(setText) {
       setText(event.target.value);
     }
@@ -139,23 +144,23 @@ export function TextFieldComponent(props: Props) {
     );
   };
 
-  const isValid = () => {
+  const validator = (target: string) => {
     if (
       textFieldType == 'password' ||
       textFieldType == 'email'
     ) {
-      return !inputRef.current?.validity.valid;
+      return !inputRef.current?.validity.valid || (target == '');
     }
+    return (textFieldType == 'confirmPassword' && password != target) ? true : false
+  }
 
-    if (
+  const isConfirmTextFieldValid = (event: React.ChangeEvent<HTMLInputElement>) => {
+    return (
       textFieldType == 'confirmPassword' &&
-      password !== values.textValue
-    ) {
-      return true
-    }
-
-    return false;
-  };
+      password != event.target.value) ?
+      true :
+      false;
+  }
 
   const textFieldClass = classNames(classes.marginTextField, classes.textField);
   const helperTextClass = classNames(classes.marginHelperText, classes.helperText);
@@ -167,7 +172,7 @@ export function TextFieldComponent(props: Props) {
           {returnInputLabel(textFieldType)}
         </InputLabel>
         <OutlinedInput
-          error={isValid()}
+          error={validator(values.textValue)}
           id="outlined"
           type={
             values.showPassword
@@ -187,7 +192,7 @@ export function TextFieldComponent(props: Props) {
         />
       </FormControll>
       <FormHelperText className={helperTextClass}>
-        {isValid() ? returnTextFieldMessage(textFieldType) : undefined}
+        {validator(values.textValue) && returnTextFieldMessage(textFieldType)}
       </FormHelperText>
     </TextFieldContainer>
   );
