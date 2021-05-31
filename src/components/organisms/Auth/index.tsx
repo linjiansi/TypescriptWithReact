@@ -9,13 +9,18 @@ type Props = {
   authType: AuthType;
 };
 
-export type AuthType = 'login' | 'signUp';
+const AuthType = {
+  login: 'LOGIN',
+  signUp: 'SIGN_UP',
+} as const;
+
+export type AuthType = typeof AuthType[keyof typeof AuthType];
 
 const returnAuthType = (authType: AuthType) => {
   switch (authType) {
-    case 'login':
+    case AuthType.login:
       return 'ログイン';
-    case 'signUp':
+    case AuthType.signUp:
       return 'サインアップ';
   }
 };
@@ -30,7 +35,7 @@ export function AuthComponent(props: Props) {
 
   const isTextFieldValid = () => {
     return (
-    authType == 'signUp' ?
+    authType == AuthType.signUp ?
       mailError || passwordError || confirmError :
       mailError || passwordError
     );
@@ -55,7 +60,7 @@ export function AuthComponent(props: Props) {
 
   const renderComponentByAuthType = (authType: AuthType) => {
     switch (authType) {
-      case 'login':
+      case AuthType.login:
         return (
           <>
             {/* <MemoryRouter> */}
@@ -70,7 +75,7 @@ export function AuthComponent(props: Props) {
             {/* </MemoryRouter> */}
           </>
         );
-      case 'signUp':
+      case AuthType.signUp:
         return (
           <>
             <TextFieldComponent textFieldType='CONFIRM_PASSWORD'

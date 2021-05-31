@@ -9,7 +9,7 @@ export function Login() {
       <Title>Book Manager</Title>
       <PaperContainer>
         <Paper elevation={8}>
-          <AuthComponent authType={'login'}></AuthComponent>
+          <AuthComponent authType='LOGIN'></AuthComponent>
         </Paper>
       </PaperContainer>
     </>
