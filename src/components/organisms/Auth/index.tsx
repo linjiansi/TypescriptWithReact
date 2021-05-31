@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { TextFieldComponent } from '../../atoms/TextField/index';
+import { TextFieldComponent } from '../../molecules/TextField/index';
 import { ButtonComponent } from '../../atoms/Button/index';
 import { IconComponent } from '../../atoms/Icon/index';
 import { Link, MemoryRouter } from 'react-router-dom';
