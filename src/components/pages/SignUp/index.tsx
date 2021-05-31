@@ -9,7 +9,7 @@ export function SignUp() {
       <Title>Book Manager</Title>
       <PaperContainer>
         <Paper elevation={8}>
-          <AuthComponent authType={'signUp'}></AuthComponent>
+          <AuthComponent authType='SIGN_UP'></AuthComponent>
         </Paper>
       </PaperContainer>
     </>
