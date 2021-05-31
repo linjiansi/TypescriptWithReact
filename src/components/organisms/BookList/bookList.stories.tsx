@@ -1,11 +1,11 @@
 import React from 'react';
-import BookList from './index';
+import { BookListComponent } from './index';
 
 export default {
-    title: 'BookList',
-    component: BookList,
+  title: 'BookList',
+  component: BookListComponent,
 };
 
 export function story() {
-    return <BookList></BookList>
+  return <BookListComponent></BookListComponent>;
 }

@@ -1,36 +1,17 @@
 import React from 'react';
-import TextField from '../../atoms/TextField/index';
-import styled from 'styled-components';
+import { ImageComponent } from '../../atoms/Image';
+import { TextFieldComponent } from '../TextField/index';
+import { InputBookContainer, TextFieldContainer } from './style';
 
-const TextFieldContainer = styled.div`
-    display: flex;
-    flex-flow: column;
-    align-items: center;
-`;
-
-const Img = styled.img`
-    width: 16rem;
-    height: 16rem;
-`;
-
-const InputBookContainer = styled.div`
-    display: flex;
-    flex-flow: row;
-    justify-content: space-evenly;
-    align-items: center;
-    margin: 50px 20px;
-`;
-
-export default function InputBook() {
-    return (
-        <InputBookContainer>
-            <Img src='https://source.unsplash.com/random'></Img>
-            <TextFieldContainer>
-                <TextField textFieldType={'bookName'}></TextField>
-                <TextField textFieldType={'bookPrice'}></TextField>
-                <TextField textFieldType={'purchaseDate'}></TextField>
-            </TextFieldContainer>
-        </InputBookContainer>
-    );
+export function InputBookComponent() {
+  return (
+    <InputBookContainer>
+      <ImageComponent></ImageComponent>
+      <TextFieldContainer>
+        <TextFieldComponent textFieldType='BOOK_NAME'></TextFieldComponent>
+        <TextFieldComponent textFieldType='BOOK_PRICE'></TextFieldComponent>
+        <TextFieldComponent textFieldType='PURCHASE_DATE'></TextFieldComponent>
+      </TextFieldContainer>
+    </InputBookContainer>
+  );
 }
-

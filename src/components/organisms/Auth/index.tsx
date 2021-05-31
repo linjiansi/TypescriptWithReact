@@ -1,68 +1,109 @@
-import React from 'react';
-import TextField from '../../atoms/TextField/index';
-import Button from '../../atoms/Button/index';
-import { Icon } from '../../atoms/Icon/index';
-import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { TextFieldComponent } from '../../molecules/TextField/index';
+import { ButtonComponent } from '../../atoms/Button/index';
+import { IconComponent } from '../../atoms/Icon/index';
+import { Link, MemoryRouter } from 'react-router-dom';
+import { Container } from './style';
 
 type Props = {
-    authType: AuthType
+  authType: AuthType;
 };
 
-export type AuthType = 'login' | 'signUp';
+const AuthType = {
+  login: 'LOGIN',
+  signUp: 'SIGN_UP',
+} as const;
+
+export type AuthType = typeof AuthType[keyof typeof AuthType];
 
 const returnAuthType = (authType: AuthType) => {
-    switch (authType) {
-        case 'login':
-            return 'ログイン';
-            break;
-        case 'signUp':
-            return 'サインアップ';
-            break;
-    }
+  switch (authType) {
+    case AuthType.login:
+      return 'ログイン';
+    case AuthType.signUp:
+      return 'サインアップ';
+  }
 };
 
-const Container = styled.div`
-    display: flex;
-    flex-flow: column;
-    align-items: center;
-`;
+export function AuthComponent(props: Props) {
+  const { authType } = props;
+  const [email, setEmail] = useState<string>();
+  const [password, setPassword] = useState<string>();
+  const [mailError, setMailError] = useState<boolean>(true);
+  const [passwordError, setPasswordError] = useState<boolean>(true);
+  const [confirmError, setConfirmError] = useState<boolean>(true);
 
-export default function Auth(props: Props) {
-    const { authType } = props;
-
-    const renderComponentByAuthType = (authType: AuthType) => {
-        switch (authType) {
-            case 'login':
-                return (
-                    <>  <Link to={'/'}>
-                            <Button useCase={'auth'}>{returnAuthType(authType)}</Button>
-                        </Link>
-                        <Link to={'/sign-up'}>
-                            <Button useCase={'auth'}>{'サインアップへ'}</Button>
-                        </Link>
-                    </>
-                );
-                break;
-            case 'signUp':
-                return (
-                    <>
-                        <TextField textFieldType='confirmPassword'></TextField>
-                        <Link to={'/'}>
-                            <Button useCase={'auth'}>{returnAuthType(authType)}</Button>
-                        </Link>
-                    </>
-                );
-        }
-    };
-
+  const isTextFieldValid = () => {
     return (
-        <Container>
-            <Icon></Icon>
-            <h2>{returnAuthType(authType)}</h2>
-            <TextField textFieldType={'email'}></TextField>
-            <TextField textFieldType={'password'}></TextField>
-            {renderComponentByAuthType(authType)}
-        </Container>
+    authType == AuthType.signUp ?
+      mailError || passwordError || confirmError :
+      mailError || passwordError
     );
+  }
+
+  const renderDisabableButtonComponent = () => {
+    return (
+      isTextFieldValid() ?
+        <ButtonComponent useCase='AUTH'
+                         form={authType}
+                         disabled={isTextFieldValid()}
+        >{returnAuthType(authType)}</ButtonComponent> :
+        <Link to={'/'}>
+            <ButtonComponent useCase='AUTH'
+                             form={authType}
+                             buttonType='submit'
+                             disabled={isTextFieldValid()}
+            >{returnAuthType(authType)}</ButtonComponent>
+        </Link>
+    );
+  };
+
+  const renderComponentByAuthType = (authType: AuthType) => {
+    switch (authType) {
+      case AuthType.login:
+        return (
+          <>
+            {/* <MemoryRouter> */}
+            {renderDisabableButtonComponent()}
+            {/* </MemoryRouter> */}
+            {/* <MemoryRouter> */}
+              <Link to={'/sign-up'}>
+                <ButtonComponent useCase='AUTH'
+                                 disabled={false}
+                >{'サインアップへ'}</ButtonComponent>
+              </Link>
+            {/* </MemoryRouter> */}
+          </>
+        );
+      case AuthType.signUp:
+        return (
+          <>
+            <TextFieldComponent textFieldType='CONFIRM_PASSWORD'
+                                password={password}
+                                setError={setConfirmError}
+            ></TextFieldComponent>
+            {/* <MemoryRouter> */}
+            {renderDisabableButtonComponent()}
+            {/* </MemoryRouter> */}
+          </>
+        );
+    }
+  };
+
+  return (
+    <Container>
+      <IconComponent></IconComponent>
+      <h2>{returnAuthType(authType)}</h2>
+      <form id={authType}>
+        <TextFieldComponent textFieldType='EMAIL'
+                            setText={setEmail}
+                            setError={setMailError}></TextFieldComponent>
+        <TextFieldComponent textFieldType='PASSWORD'
+                            setText={setPassword}
+                            setError={setPasswordError}
+        ></TextFieldComponent>
+        {renderComponentByAuthType(authType)}
+      </form>
+    </Container>
+  );
 }

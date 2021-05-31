@@ -1,26 +1,17 @@
 import React from 'react';
-import Auth from '../../organisms/Auth/index';
+import { AuthComponent } from '../../organisms/Auth/index';
 import Paper from '@material-ui/core/Paper';
-import styled from 'styled-components';
+import { PaperContainer, Title } from './style';
 
-const Title = styled.h2`
-    text-align: center;
-`;
-
-const PaperContainer = styled.div`
-    width: 400px;
-    margin: 0 auto;
-`;
-
-export default function Login() {
-    return (
-        <>
-            <Title>Book Manager</Title>
-            <PaperContainer>
-                <Paper elevation={8}>
-                    <Auth authType={'login'}></Auth>
-                </Paper>
-            </PaperContainer>
-        </>
-    );
+export function Login() {
+  return (
+    <>
+      <Title>Book Manager</Title>
+      <PaperContainer>
+        <Paper elevation={8}>
+          <AuthComponent authType='LOGIN'></AuthComponent>
+        </Paper>
+      </PaperContainer>
+    </>
+  );
 }

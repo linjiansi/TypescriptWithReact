@@ -1,27 +1,18 @@
 import React from 'react';
-import Header from '../../molecules/Header/index';
-import BookList from '../../organisms/BookList/index';
+import { HeaderComponent } from '../../molecules/Header/index';
+import { BookListComponent } from '../../organisms/BookList/index';
 import Paper from '@material-ui/core/Paper';
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import { useStyles } from './style';
 
-const useStyles = makeStyles((theme: Theme) =>
-    createStyles({
-        paper: {
-            margin: theme.spacing(8),
-        },
-    }),
-);
+export function Home() {
+  const classes = useStyles();
 
-
-export default function Home() {
-    const classes = useStyles();
-
-    return (
-        <>
-            <Header headerType={'main'}></Header>
-            <Paper elevation={8} className={classes.paper}>
-                <BookList></BookList>
-            </Paper>
-        </>
-    );
+  return (
+    <>
+      <HeaderComponent headerType='MAIN'></HeaderComponent>
+      <Paper elevation={8} className={classes.paper}>
+        <BookListComponent></BookListComponent>
+      </Paper>
+    </>
+  );
 }

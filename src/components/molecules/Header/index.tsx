@@ -1,117 +1,97 @@
 import React from 'react';
-import { createStyles, makeStyles, Theme, createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
-import Button from '../../atoms/Button/index';
+import { ThemeProvider } from '@material-ui/core/styles';
+import { ButtonComponent } from '../../atoms/Button/index';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import { primaryColor, whiteColor } from '../../../utils/color';
-import { Link } from 'react-router-dom';
+import { Link, MemoryRouter } from 'react-router-dom';
+import { theme, useStyles } from './style';
 
 type Props = {
-    headerType: HeaderType,
+  headerType: HeaderType;
+  buttonForm?: ButtonForm;
 };
 
-export type HeaderType = 'main' |
-                  'bookList' |
-                  'editBook' |
-                  'addBook';
+const HeaderType = {
+  main: 'MAIN',
+  bookList: 'BOOK_LIST',
+  editBook: 'EDIT_BOOK',
+  addBook: 'ADD_BOOK',
+} as const;
 
-const useStyles = makeStyles((theme: Theme) =>
-    createStyles({
-        root: {
-            flexGrow: 1,
-        },
-        title: {
-            flexGrow: 1,
-        },
-        header: {
-            boxShadow: 'none',
-        },
-    }),
-);
+const ButtonForm = {
+  edit: 'EDIT',
+  add: 'ADD',
+} as const;
+
+export type HeaderType = typeof HeaderType[keyof typeof HeaderType];
+export type ButtonForm = typeof ButtonForm[keyof typeof ButtonForm];
 
 const returnHeaderTitle = (headerType: HeaderType) => {
-    switch (headerType) {
-        case 'main':
-            return 'BookManager';
-            break;
-        case 'bookList':
-            return '書籍一覧';
-            break;
-        case 'addBook':
-            return '書籍追加';
-            break;
-        case 'editBook':
-            return '書籍編集';
-            break;
-    }
+  switch (headerType) {
+    case HeaderType.main:
+      return 'BookManager';
+    case HeaderType.bookList:
+      return '書籍一覧';
+    case HeaderType.addBook:
+      return '書籍追加';
+    case HeaderType.editBook:
+      return '書籍編集';
+  }
 };
 
 const returnButtonTitle = (headerType: HeaderType) => {
-    switch (headerType) {
-        case 'main':
-            return 'LOGOUT';
-            break;
-        case 'bookList':
-            return 'CREATE';
-            break;
-        case 'addBook':
-            return 'CREATE';
-            break;
-        case 'editBook':
-            return 'UPDATE';
-            break;
-    }
+  switch (headerType) {
+    case HeaderType.main:
+      return 'LOGOUT';
+    case HeaderType.bookList:
+      return 'CREATE';
+    case HeaderType.addBook:
+      return 'CREATE';
+    case HeaderType.editBook:
+      return 'UPDATE';
+  }
 };
 
 const returnRouterPath = (headerType: HeaderType) => {
-    switch (headerType) {
-        case 'main':
-            return '/login';
-            break;
-        case 'bookList':
-            return '/add';
-            break;
-        case 'addBook':
-            return '/';
-            break;
-        case 'editBook':
-            return '/';
-            break;
-    }
-}
+  switch (headerType) {
+    case HeaderType.main:
+      return '/login';
+    case HeaderType.bookList:
+      return '/add';
+    case HeaderType.addBook:
+      return '/';
+    case HeaderType.editBook:
+      return '/';
+  }
+};
 
-const theme = createMuiTheme({
-    palette: {
-        primary: {
-            main: primaryColor(),
-        },
-        secondary: {
-            main: whiteColor(),
-        },
-    },
-});
+export function HeaderComponent(props: Props) {
+  const { headerType, buttonForm } = props;
+  const classes = useStyles();
 
-
-export default function Header(props: Props) {
-    const { headerType } = props;
-    const classes = useStyles();
-    return (
-        <div className={classes.root}>
-            <ThemeProvider theme={theme}>
-                <AppBar position="static"
-                        color={headerType == 'main' ? 'primary' : 'secondary'}
-                        className={classes.header}>
-                    <Toolbar>
-                        <Typography variant="h6"
-                                    className={classes.title}
-                        >{returnHeaderTitle(headerType)}</Typography>
-                        <Link to={returnRouterPath(headerType)}>
-                            <Button useCase={'main'}>{returnButtonTitle(headerType)}</Button>
-                        </Link>
-                    </Toolbar>
-                </AppBar>
-            </ThemeProvider>
-        </div>
-    );
+  return (
+    <div className={classes.root}>
+      <ThemeProvider theme={theme}>
+        <AppBar
+          position="static"
+          color={headerType == HeaderType.main ? 'primary' : 'secondary'}
+          className={classes.header}
+        >
+          <Toolbar>
+            <Typography variant="h6" className={classes.title}>
+              {returnHeaderTitle(headerType)}
+            </Typography>
+            <MemoryRouter>
+              <Link to={returnRouterPath(headerType)}>
+                <ButtonComponent useCase='MAIN'
+                                 form={buttonForm}
+                                 disabled={false}>{returnButtonTitle(headerType)}</ButtonComponent>
+              </Link>
+            </MemoryRouter>
+          </Toolbar>
+        </AppBar>
+      </ThemeProvider>
+    </div>
+  );
 }

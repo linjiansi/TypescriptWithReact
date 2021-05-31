@@ -1,11 +1,4 @@
-export function primaryColor(): string {
-    return '#6302ee';
-}
-
-export function secondaryColor(): string {
-    return '#3adac5';
-}
-
-export function whiteColor(): string {
-    return '#ffffff';
-}
+export const PRIMARY_COLOR = '#6302ee';
+export const SECONDARY_COLOR = '#3adac5';
+export const WHITE_COLOR = '#ffffff';
+export const RED_COLOR = '#ef1616';

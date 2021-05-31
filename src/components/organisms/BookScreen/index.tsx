@@ -1,21 +1,28 @@
 import React from 'react';
-import InputBook from '../../molecules/InputBook/index'
-import Header from '../../molecules/Header/index'
+import { InputBookComponent } from '../../molecules/InputBook/index';
+import { HeaderComponent } from '../../molecules/Header/index';
 
 type Props = {
-    bookMode: BookMode,
+  bookMode: BookMode;
 };
 
-export type BookMode = 'edit' | 'add';
+const BookMode = {
+  edit: 'EDIT',
+  add: 'ADD',
+} as const;
 
-export default function BookScreen(props: Props) {
-    const { bookMode } = props;
-    return (
-        <>
-            <Header
-                headerType={bookMode == 'edit' ? 'editBook' : 'addBook'}
-            ></Header>
-            <InputBook></InputBook>
-        </>
-    );
+export type BookMode = typeof BookMode[keyof typeof BookMode];
+
+export function BookScreenComponent(props: Props) {
+  const { bookMode } = props;
+
+  return (
+    <form id={bookMode}>
+      <HeaderComponent
+        headerType={bookMode == BookMode.edit ? 'EDIT_BOOK' : 'ADD_BOOK'}
+        buttonForm={bookMode}
+      ></HeaderComponent>
+      <InputBookComponent></InputBookComponent>
+    </form>
+  );
 }

@@ -1,56 +1,44 @@
 import React from 'react';
-import { makeStyles, createStyles, createMuiTheme, ThemeProvider, Theme } from '@material-ui/core/styles';
+import { ThemeProvider } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-import { primaryColor, secondaryColor } from '../../../utils/color';
-import styled from 'styled-components';
+import { theme, useStyles } from './style';
+import classNames from 'classnames';
 
 type Props = {
-    useCase: UseCase;
-    children: React.ReactNode;
+  useCase: UseCase;
+  buttonType?: "submit";
+  form?: string;
+  disabled: boolean;
+  children: React.ReactNode;
 };
 
-export type UseCase = 'auth' | 'main';
+const UseCase = {
+  auth: 'AUTH',
+  main: 'MAIN',
+} as const;
 
-const useStyles = makeStyles(() =>
-    createStyles({
-        auth: {
-            width: '30ch',
-        },
-        main: {
-            width: 100,
-        },
-        button: {
-            marginTop: theme.spacing(1),
-            marginBottom: theme.spacing(1),
-        },
-    }),
-);
+export type UseCase = typeof UseCase[keyof typeof UseCase];
 
-const theme = createMuiTheme({
-    palette: {
-        primary: {
-            main: primaryColor(),
-        },
-        secondary: {
-            main: secondaryColor(),
-        },
-    },
-});
+export function ButtonComponent(props: Props) {
+  const { useCase, buttonType, form, disabled, children, } = props;
+  const classes = useStyles();
+  const buttonClass = classNames(classes.button);
 
-export default function ContainedButton(props: Props) {
-    const { useCase, children } = props;
-    const classes = useStyles();
-
-    return (
-        <div className={useCase == 'auth' ? classes.auth : classes.main}>
-            <ThemeProvider theme={theme}>
-                <Button
-                    className={classes.button}
-                    variant="contained"
-                    color={useCase == 'auth' ? 'primary' : 'secondary'}
-                    fullWidth={useCase == 'auth'}
-                >{children}</Button>
-            </ThemeProvider>
-        </div>
-    )
+  return (
+    <div className={useCase == UseCase.auth ? classes.auth : classes.main}>
+      <ThemeProvider theme={theme}>
+        <Button
+          className={buttonClass}
+          variant="contained"
+          color={useCase == UseCase.auth ? 'primary' : 'secondary'}
+          fullWidth={useCase == UseCase.auth}
+          type={buttonType}
+          form={form}
+          disabled={disabled}
+        >
+          {children}
+        </Button>
+      </ThemeProvider>
+    </div>
+  );
 }
