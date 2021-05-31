@@ -73,7 +73,7 @@ export function AuthComponent(props: Props) {
       case 'signUp':
         return (
           <>
-            <TextFieldComponent textFieldType="confirmPassword"
+            <TextFieldComponent textFieldType='CONFIRM_PASSWORD'
                                 password={password}
                                 setError={setConfirmError}
             ></TextFieldComponent>
@@ -90,10 +90,10 @@ export function AuthComponent(props: Props) {
       <IconComponent></IconComponent>
       <h2>{returnAuthType(authType)}</h2>
       <form id={authType}>
-        <TextFieldComponent textFieldType={'email'}
+        <TextFieldComponent textFieldType='EMAIL'
                             setText={setEmail}
                             setError={setMailError}></TextFieldComponent>
-        <TextFieldComponent textFieldType={'password'}
+        <TextFieldComponent textFieldType='PASSWORD'
                             setText={setPassword}
                             setError={setPasswordError}
         ></TextFieldComponent>

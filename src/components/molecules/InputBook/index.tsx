@@ -8,9 +8,9 @@ export function InputBookComponent() {
     <InputBookContainer>
       <ImageComponent></ImageComponent>
       <TextFieldContainer>
-        <TextFieldComponent textFieldType={'bookName'}></TextFieldComponent>
-        <TextFieldComponent textFieldType={'bookPrice'}></TextFieldComponent>
-        <TextFieldComponent textFieldType={'purchaseDate'}></TextFieldComponent>
+        <TextFieldComponent textFieldType='BOOK_NAME'></TextFieldComponent>
+        <TextFieldComponent textFieldType='BOOK_PRICE'></TextFieldComponent>
+        <TextFieldComponent textFieldType='PURCHASE_DATE'></TextFieldComponent>
       </TextFieldContainer>
     </InputBookContainer>
   );
