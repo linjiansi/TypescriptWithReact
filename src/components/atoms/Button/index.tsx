@@ -12,7 +12,13 @@ type Props = {
   children: React.ReactNode;
 };
 
-export type UseCase = 'auth' | 'main';
+// export type UseCase = 'auth' | 'main';
+const UseCase = {
+  auth: 'AUTH',
+  main: 'MAIN',
+} as const;
+
+export type UseCase = typeof UseCase[keyof typeof UseCase];
 
 export function ButtonComponent(props: Props) {
   const { useCase, buttonType, form, disabled, children, } = props;
@@ -20,13 +26,13 @@ export function ButtonComponent(props: Props) {
   const buttonClass = classNames(classes.button);
 
   return (
-    <div className={useCase == 'auth' ? classes.auth : classes.main}>
+    <div className={useCase == UseCase.auth ? classes.auth : classes.main}>
       <ThemeProvider theme={theme}>
         <Button
           className={buttonClass}
           variant="contained"
-          color={useCase == 'auth' ? 'primary' : 'secondary'}
-          fullWidth={useCase == 'auth'}
+          color={useCase == UseCase.auth ? 'primary' : 'secondary'}
+          fullWidth={useCase == UseCase.auth}
           type={buttonType}
           form={form}
           disabled={disabled}

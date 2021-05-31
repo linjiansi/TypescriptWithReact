@@ -72,7 +72,7 @@ export function HeaderComponent(props: Props) {
             </Typography>
             <MemoryRouter>
               <Link to={returnRouterPath(headerType)}>
-                <ButtonComponent useCase={'main'}
+                <ButtonComponent useCase='MAIN'
                                  form={buttonForm}
                                  disabled={false}>{returnButtonTitle(headerType)}</ButtonComponent>
               </Link>
