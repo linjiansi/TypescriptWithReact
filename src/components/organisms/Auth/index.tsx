@@ -39,12 +39,12 @@ export function AuthComponent(props: Props) {
   const renderDisabableButtonComponent = () => {
     return (
       isTextFieldValid() ?
-        <ButtonComponent useCase={'auth'}
+        <ButtonComponent useCase='AUTH'
                          form={authType}
                          disabled={isTextFieldValid()}
         >{returnAuthType(authType)}</ButtonComponent> :
         <Link to={'/'}>
-            <ButtonComponent useCase={'auth'}
+            <ButtonComponent useCase='AUTH'
                              form={authType}
                              buttonType='submit'
                              disabled={isTextFieldValid()}
@@ -63,7 +63,7 @@ export function AuthComponent(props: Props) {
             {/* </MemoryRouter> */}
             {/* <MemoryRouter> */}
               <Link to={'/sign-up'}>
-                <ButtonComponent useCase={'auth'}
+                <ButtonComponent useCase='AUTH'
                                  disabled={false}
                 >{'サインアップへ'}</ButtonComponent>
               </Link>
