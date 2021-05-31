@@ -1,0 +1,491 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly at BookListComponent 1`] = `
+Array [
+  <div
+    className="makeStyles-root-1"
+  >
+    <header
+      className="MuiPaper-root MuiAppBar-root MuiAppBar-positionStatic MuiAppBar-colorSecondary makeStyles-header-3 MuiPaper-elevation4"
+    >
+      <div
+        className="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters"
+      >
+        <h6
+          className="MuiTypography-root makeStyles-title-2 MuiTypography-h6"
+        >
+          書籍一覧
+        </h6>
+        <a
+          href="/add"
+          onClick={[Function]}
+        >
+          <div
+            className="makeStyles-main-5"
+          >
+            <button
+              className="MuiButtonBase-root-34 MuiButton-root-7 MuiButton-contained-15 makeStyles-button-6 MuiButton-containedSecondary-17"
+              disabled={false}
+              onBlur={[Function]}
+              onDragLeave={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              onKeyUp={[Function]}
+              onMouseDown={[Function]}
+              onMouseLeave={[Function]}
+              onMouseUp={[Function]}
+              onTouchEnd={[Function]}
+              onTouchMove={[Function]}
+              onTouchStart={[Function]}
+              tabIndex={0}
+              type="button"
+            >
+              <span
+                className="MuiButton-label-8"
+              >
+                CREATE
+              </span>
+            </button>
+          </div>
+        </a>
+      </div>
+    </header>
+  </div>,
+  <div
+    className="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-4"
+  >
+    <div
+      className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4"
+    >
+      <a
+        href="/edit"
+        onClick={[Function]}
+      >
+        <div
+          className="MuiPaper-root MuiCard-root makeStyles-root-35 MuiPaper-elevation1 MuiPaper-rounded"
+        >
+          <div
+            className="MuiCardMedia-root makeStyles-media-36"
+            style={
+              Object {
+                "backgroundImage": "url(\\"https://source.unsplash.com/random\\")",
+              }
+            }
+            title="book"
+          />
+          <div
+            className="MuiCardContent-root"
+          >
+            <p
+              className="MuiTypography-root MuiTypography-body2 MuiTypography-colorTextPrimary"
+            >
+              書籍名: 
+              hogehoge
+            </p>
+            <div
+              className="sc-bdnxRM ctBBVd"
+            >
+              <p
+                className="MuiTypography-root MuiTypography-body2 MuiTypography-colorTextSecondary"
+              >
+                金額: 
+                0
+              </p>
+              <p
+                className="MuiTypography-root MuiTypography-body2 MuiTypography-colorTextSecondary"
+              >
+                購入日: 
+                
+              </p>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+    <div
+      className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4"
+    >
+      <a
+        href="/edit"
+        onClick={[Function]}
+      >
+        <div
+          className="MuiPaper-root MuiCard-root makeStyles-root-35 MuiPaper-elevation1 MuiPaper-rounded"
+        >
+          <div
+            className="MuiCardMedia-root makeStyles-media-36"
+            style={
+              Object {
+                "backgroundImage": "url(\\"https://source.unsplash.com/random\\")",
+              }
+            }
+            title="book"
+          />
+          <div
+            className="MuiCardContent-root"
+          >
+            <p
+              className="MuiTypography-root MuiTypography-body2 MuiTypography-colorTextPrimary"
+            >
+              書籍名: 
+              hogehoge
+            </p>
+            <div
+              className="sc-bdnxRM ctBBVd"
+            >
+              <p
+                className="MuiTypography-root MuiTypography-body2 MuiTypography-colorTextSecondary"
+              >
+                金額: 
+                0
+              </p>
+              <p
+                className="MuiTypography-root MuiTypography-body2 MuiTypography-colorTextSecondary"
+              >
+                購入日: 
+                
+              </p>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+    <div
+      className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4"
+    >
+      <a
+        href="/edit"
+        onClick={[Function]}
+      >
+        <div
+          className="MuiPaper-root MuiCard-root makeStyles-root-35 MuiPaper-elevation1 MuiPaper-rounded"
+        >
+          <div
+            className="MuiCardMedia-root makeStyles-media-36"
+            style={
+              Object {
+                "backgroundImage": "url(\\"https://source.unsplash.com/random\\")",
+              }
+            }
+            title="book"
+          />
+          <div
+            className="MuiCardContent-root"
+          >
+            <p
+              className="MuiTypography-root MuiTypography-body2 MuiTypography-colorTextPrimary"
+            >
+              書籍名: 
+              hogehoge
+            </p>
+            <div
+              className="sc-bdnxRM ctBBVd"
+            >
+              <p
+                className="MuiTypography-root MuiTypography-body2 MuiTypography-colorTextSecondary"
+              >
+                金額: 
+                0
+              </p>
+              <p
+                className="MuiTypography-root MuiTypography-body2 MuiTypography-colorTextSecondary"
+              >
+                購入日: 
+                
+              </p>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+    <div
+      className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4"
+    >
+      <a
+        href="/edit"
+        onClick={[Function]}
+      >
+        <div
+          className="MuiPaper-root MuiCard-root makeStyles-root-35 MuiPaper-elevation1 MuiPaper-rounded"
+        >
+          <div
+            className="MuiCardMedia-root makeStyles-media-36"
+            style={
+              Object {
+                "backgroundImage": "url(\\"https://source.unsplash.com/random\\")",
+              }
+            }
+            title="book"
+          />
+          <div
+            className="MuiCardContent-root"
+          >
+            <p
+              className="MuiTypography-root MuiTypography-body2 MuiTypography-colorTextPrimary"
+            >
+              書籍名: 
+              hogehoge
+            </p>
+            <div
+              className="sc-bdnxRM ctBBVd"
+            >
+              <p
+                className="MuiTypography-root MuiTypography-body2 MuiTypography-colorTextSecondary"
+              >
+                金額: 
+                0
+              </p>
+              <p
+                className="MuiTypography-root MuiTypography-body2 MuiTypography-colorTextSecondary"
+              >
+                購入日: 
+                
+              </p>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+    <div
+      className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4"
+    >
+      <a
+        href="/edit"
+        onClick={[Function]}
+      >
+        <div
+          className="MuiPaper-root MuiCard-root makeStyles-root-35 MuiPaper-elevation1 MuiPaper-rounded"
+        >
+          <div
+            className="MuiCardMedia-root makeStyles-media-36"
+            style={
+              Object {
+                "backgroundImage": "url(\\"https://source.unsplash.com/random\\")",
+              }
+            }
+            title="book"
+          />
+          <div
+            className="MuiCardContent-root"
+          >
+            <p
+              className="MuiTypography-root MuiTypography-body2 MuiTypography-colorTextPrimary"
+            >
+              書籍名: 
+              hogehoge
+            </p>
+            <div
+              className="sc-bdnxRM ctBBVd"
+            >
+              <p
+                className="MuiTypography-root MuiTypography-body2 MuiTypography-colorTextSecondary"
+              >
+                金額: 
+                0
+              </p>
+              <p
+                className="MuiTypography-root MuiTypography-body2 MuiTypography-colorTextSecondary"
+              >
+                購入日: 
+                
+              </p>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+    <div
+      className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4"
+    >
+      <a
+        href="/edit"
+        onClick={[Function]}
+      >
+        <div
+          className="MuiPaper-root MuiCard-root makeStyles-root-35 MuiPaper-elevation1 MuiPaper-rounded"
+        >
+          <div
+            className="MuiCardMedia-root makeStyles-media-36"
+            style={
+              Object {
+                "backgroundImage": "url(\\"https://source.unsplash.com/random\\")",
+              }
+            }
+            title="book"
+          />
+          <div
+            className="MuiCardContent-root"
+          >
+            <p
+              className="MuiTypography-root MuiTypography-body2 MuiTypography-colorTextPrimary"
+            >
+              書籍名: 
+              hogehoge
+            </p>
+            <div
+              className="sc-bdnxRM ctBBVd"
+            >
+              <p
+                className="MuiTypography-root MuiTypography-body2 MuiTypography-colorTextSecondary"
+              >
+                金額: 
+                0
+              </p>
+              <p
+                className="MuiTypography-root MuiTypography-body2 MuiTypography-colorTextSecondary"
+              >
+                購入日: 
+                
+              </p>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+    <div
+      className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4"
+    >
+      <a
+        href="/edit"
+        onClick={[Function]}
+      >
+        <div
+          className="MuiPaper-root MuiCard-root makeStyles-root-35 MuiPaper-elevation1 MuiPaper-rounded"
+        >
+          <div
+            className="MuiCardMedia-root makeStyles-media-36"
+            style={
+              Object {
+                "backgroundImage": "url(\\"https://source.unsplash.com/random\\")",
+              }
+            }
+            title="book"
+          />
+          <div
+            className="MuiCardContent-root"
+          >
+            <p
+              className="MuiTypography-root MuiTypography-body2 MuiTypography-colorTextPrimary"
+            >
+              書籍名: 
+              hogehoge
+            </p>
+            <div
+              className="sc-bdnxRM ctBBVd"
+            >
+              <p
+                className="MuiTypography-root MuiTypography-body2 MuiTypography-colorTextSecondary"
+              >
+                金額: 
+                0
+              </p>
+              <p
+                className="MuiTypography-root MuiTypography-body2 MuiTypography-colorTextSecondary"
+              >
+                購入日: 
+                
+              </p>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+    <div
+      className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4"
+    >
+      <a
+        href="/edit"
+        onClick={[Function]}
+      >
+        <div
+          className="MuiPaper-root MuiCard-root makeStyles-root-35 MuiPaper-elevation1 MuiPaper-rounded"
+        >
+          <div
+            className="MuiCardMedia-root makeStyles-media-36"
+            style={
+              Object {
+                "backgroundImage": "url(\\"https://source.unsplash.com/random\\")",
+              }
+            }
+            title="book"
+          />
+          <div
+            className="MuiCardContent-root"
+          >
+            <p
+              className="MuiTypography-root MuiTypography-body2 MuiTypography-colorTextPrimary"
+            >
+              書籍名: 
+              hogehoge
+            </p>
+            <div
+              className="sc-bdnxRM ctBBVd"
+            >
+              <p
+                className="MuiTypography-root MuiTypography-body2 MuiTypography-colorTextSecondary"
+              >
+                金額: 
+                0
+              </p>
+              <p
+                className="MuiTypography-root MuiTypography-body2 MuiTypography-colorTextSecondary"
+              >
+                購入日: 
+                
+              </p>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+    <div
+      className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4"
+    >
+      <a
+        href="/edit"
+        onClick={[Function]}
+      >
+        <div
+          className="MuiPaper-root MuiCard-root makeStyles-root-35 MuiPaper-elevation1 MuiPaper-rounded"
+        >
+          <div
+            className="MuiCardMedia-root makeStyles-media-36"
+            style={
+              Object {
+                "backgroundImage": "url(\\"https://source.unsplash.com/random\\")",
+              }
+            }
+            title="book"
+          />
+          <div
+            className="MuiCardContent-root"
+          >
+            <p
+              className="MuiTypography-root MuiTypography-body2 MuiTypography-colorTextPrimary"
+            >
+              書籍名: 
+              hogehoge
+            </p>
+            <div
+              className="sc-bdnxRM ctBBVd"
+            >
+              <p
+                className="MuiTypography-root MuiTypography-body2 MuiTypography-colorTextSecondary"
+              >
+                金額: 
+                0
+              </p>
+              <p
+                className="MuiTypography-root MuiTypography-body2 MuiTypography-colorTextSecondary"
+              >
+                購入日: 
+                
+              </p>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>,
+]
+`;
