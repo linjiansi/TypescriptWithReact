@@ -8,13 +8,14 @@ type Props = {
   useCase: UseCase;
   buttonType?: "submit";
   form?: string;
+  disabled: boolean;
   children: React.ReactNode;
 };
 
 export type UseCase = 'auth' | 'main';
 
 export function ButtonComponent(props: Props) {
-  const { useCase, buttonType, form, children } = props;
+  const { useCase, buttonType, form, disabled, children, } = props;
   const classes = useStyles();
   const buttonClass = classNames(classes.button);
 
@@ -28,6 +29,7 @@ export function ButtonComponent(props: Props) {
           fullWidth={useCase == 'auth'}
           type={buttonType}
           form={form}
+          disabled={disabled}
         >
           {children}
         </Button>
