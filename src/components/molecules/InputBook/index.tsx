@@ -1,6 +1,6 @@
 import React from 'react';
 import { ImageComponent } from '../../atoms/Image';
-import { TextFieldComponent } from '../../atoms/TextField/index';
+import { TextFieldComponent } from '../TextField/index';
 import { InputBookContainer, TextFieldContainer } from './style';
 
 export function InputBookComponent() {
